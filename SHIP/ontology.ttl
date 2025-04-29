@@ -1,0 +1,230 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix ssn-systems: <http://www.w3.org/ns/ssn/systems/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix ship: <http://example.org/ship#> .
+
+<http://example.org/ship-ontology> a owl:Ontology ;
+
+    owl:imports <http://www.w3.org/ns/sosa/> ,
+<http://www.w3.org/ns/ssn/> ,
+<http://www.w3.org/ns/ssn/systems/> ,
+<http://qudt.org/3.0.0/schema/qudt> ,
+<http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+#################################################################
+
+# Ontology Classes
+
+#################################################################
+
+ship:EngineComp a owl:Class ;
+    rdfs:subClassOf sosa:Platform ;
+    rdfs:label "Engine Component" .
+
+ship:Structure a owl:Class ;
+    rdfs:subClassOf sosa:Platform ;
+    rdfs:label "Structure" .
+
+ship:Device a owl:Class ;
+    rdfs:subClassOf sosa:Platform ;
+    rdfs:label "Device" .
+
+ship:GeneralSensor a owl:Class ;
+    rdfs:subClassOf sosa:Sensor ;
+    rdfs:label "General Sensor" .
+
+ship:EngineSensor a owl:Class ;
+    rdfs:subClassOf sosa:Sensor ;
+    rdfs:label "Engine Sensor" .
+
+ship:AlarmThresholdRange a owl:Class ;
+    rdfs:subClassOf ship:SensorProperty ;
+    rdfs:label "Alarm Threshold Range" .
+
+ship:NormValueRange a owl:Class ;
+    rdfs:subClassOf ship:SensorProperty ;
+    rdfs:label "Normal Value Range" .
+
+ship:SensorProperty a owl:Class ;
+    rdfs:subClassOf ssn:Property ;
+    rdfs:label "Sensor Property" .
+
+ship:AggregatedObservation a owl:Class ;
+    rdfs:subClassOf sosa:Observation ;
+    rdfs:label "Aggregated Observation" .
+
+ship:AnomalyObservation a owl:Class ;
+    rdfs:subClassOf sosa:Observation ;
+    rdfs:label "Anomaly Observation" .
+
+geo:SpatialThing a owl:Class ;
+    rdfs:label "SpatialThing" .
+
+ssn:System a owl:Class ;
+    rdfs:label "System" .
+
+ssn:Property a owl:Class ;
+    rdfs:label "Property" .
+
+ssn-systems:SystemProperty a owl:Class ;
+    rdfs:subClassOf ssn:Property ;
+    rdfs:label "SystemProperty" .
+
+ssn-systems:SystemCapability a owl:Class ;
+    rdfs:subClassOf ssn:Property ;
+    rdfs:label "SystemCapability" .
+
+ssn-systems:Frequency a owl:Class ;
+    rdfs:subClassOf ssn-systems:SystemProperty ;
+    rdfs:label "Frequency" .
+
+ssn-systems:MeasurementRange a owl:Class ;
+    rdfs:subClassOf ssn-systems:SystemProperty ;
+    rdfs:label "MeasurementRange" .
+
+sosa:Observation a owl:Class ;
+    rdfs:label "Observation" .
+
+qudt:QuantityValue a owl:Class ;
+    rdfs:label "Quantity value" .
+
+sosa:ObservableProperty a owl:Class ;
+    rdfs:subClassOf ssn:Property ;
+    rdfs:label "ObservableProperty" .	
+
+sosa:Stimulus a owl:Class ;
+    rdfs:label "Stimulus" .
+
+sosa:FeatureOfInterest a owl:Class ;
+    rdfs:label "FeatureOfInterest" .
+
+#################################################################
+
+# Object Properties
+
+#################################################################
+
+ship:hasSensorProperty a owl:ObjectProperty ;
+    rdfs:domain sosa:Sensor ;
+    rdfs:range ship:SensorProperty ;
+    rdfs:label "has sensor property" .
+
+sosa:isHostedBy a owl:ObjectProperty ;
+    rdfs:domain sosa:Sensor ;
+    rdfs:range sosa:Platform ;
+    rdfs:label "is hosted by" .
+
+sosa:hosts a owl:ObjectProperty ;
+    rdfs:domain sosa:Platform ;
+    rdfs:range sosa:Sensor ;
+    rdfs:label "hosts" .
+
+ssn:hasSubSystem a owl:ObjectProperty ;
+    rdfs:domain ssn:System ;
+    rdfs:range ssn:System ;
+    rdfs:label "has subsystem" .
+
+ssn:hasSystemCapability a owl:ObjectProperty ;
+    rdfs:domain ssn:System ;
+    rdfs:range ssn-systems:SystemCapability ;
+    rdfs:label "has system capability" .
+
+ssn:hasSystemProperty a owl:ObjectProperty ;
+    rdfs:domain ssn-systems:SystemCapability ;
+    rdfs:range ssn:Property ;
+    rdfs:label "has system property" .
+
+sosa:observes a owl:ObjectProperty ;
+    rdfs:domain sosa:Sensor ;
+    rdfs:range sosa:ObservableProperty ;
+    rdfs:label "observes" .
+
+sosa:isObservedBy a owl:ObjectProperty ;
+    rdfs:domain sosa:ObservableProperty ;
+    rdfs:range sosa:Sensor ;
+    rdfs:label "is observed by" .
+
+ssn:detects a owl:ObjectProperty ;
+    rdfs:domain sosa:Sensor ;
+    rdfs:range sosa:Stimulus ;
+    rdfs:label "detects" .
+
+ssn:isProxyFor a owl:ObjectProperty ;
+    rdfs:domain sosa:Stimulus ;
+    rdfs:range sosa:ObservableProperty ;
+    rdfs:label "is proxy for" .
+
+sosa:hasFeatureOfInterest a owl:ObjectProperty ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range sosa:FeatureOfInterest ;
+    rdfs:label "has feature of interest" .
+
+sosa:isFeatureOfInterestOf a owl:ObjectProperty ;
+    rdfs:domain sosa:FeatureOfInterest ;
+    rdfs:range sosa:Observation ;
+    rdfs:label "is feature of interest of" .
+
+sosa:hasResult a owl:ObjectProperty ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range sosa:Result ;
+    rdfs:label "has result" .
+
+sosa:isResultOf a owl:ObjectProperty ;
+    rdfs:domain sosa:Result ;
+    rdfs:range sosa:Observation ;
+    rdfs:label "is result of" .
+
+sosa:observedProperty a owl:ObjectProperty ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range sosa:ObservableProperty ;
+    rdfs:label "observed property" .
+
+sosa:madeBySensor a owl:ObjectProperty ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range sosa:Sensor ;
+    rdfs:label "made by sensor" .
+
+sosa:madeObservation a owl:ObjectProperty ;
+    rdfs:domain sosa:Sensor ;
+    rdfs:range sosa:Observation ;
+    rdfs:label "made observation" .
+
+geo:location a owl:ObjectProperty ;
+    rdfs:domain sosa:Platform ;
+    rdfs:range geo:SpatialThing ;
+    rdfs:label "location" .
+
+qudt:hasUnit a owl:ObjectProperty ;
+    rdfs:label "has unit" .
+
+#################################################################
+
+# Data Properties
+
+#################################################################
+
+sosa:hasSimpleResult a owl:DatatypeProperty ;
+    rdfs:domain sosa:Observation ;
+    rdfs:label "has simple result" .
+
+sosa:resultTime a owl:DatatypeProperty ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "result time" .
+
+qudt:numericValue a owl:DatatypeProperty ;
+    rdfs:label "numeric value" .
+
+qudt:lowerBound a owl:DatatypeProperty ;
+    rdfs:label "lower bound" .
+
+qudt:upperBound a owl:DatatypeProperty ;
+    rdfs:label "upper bound" .
+
