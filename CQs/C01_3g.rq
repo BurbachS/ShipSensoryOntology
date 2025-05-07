@@ -1,0 +1,8 @@
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ship: <http://example.org/ship#>
+
+SELECT DISTINCT ?sensor ?sensorProperty
+WHERE {
+  ?sensor ship:hasSensorProperty ?sensorProperty .
+
+}

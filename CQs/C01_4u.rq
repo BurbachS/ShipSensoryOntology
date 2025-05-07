@@ -1,0 +1,20 @@
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX ship: <http://example.org/ship#>
+PREFIX ex: <http://example.org/individuals#>
+
+SELECT DISTINCT ?sensor ?platform ?location
+WHERE {
+  ?sensor a ship:GeneralSensor;
+          sosa:isHostedBy ?platform ;
+          sosa:madeObservation ?observation . 
+		
+  ?observation sosa:hasFeatureOfInterest ex:FuelLevel .
+			 
+  ?platform geo:location ?location .
+  
+}
+
+
+
+
