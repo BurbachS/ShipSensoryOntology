@@ -1,0 +1,5 @@
+Individual;rdf:type;qudt:hasUnit;qudt:lowerBound;qudt:upperBound
+InclinationNormValueRange;ship:NormValueRange;DEG;0;360
+MachineRoomTempNormValueRange;ship:NormValueRange;DEG_C;0;60
+StarboardEngineAlternatorCurrentNormValueRange;ship:NormValueRange;MilliA;0;200
+PortEngineAlternatorCurrentNormValueRange;ship:NormValueRange;MilliA;0;200

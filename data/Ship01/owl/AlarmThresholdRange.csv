@@ -1,0 +1,12 @@
+Individual;rdf:type;qudt:hasUnit;qudt:lowerBound;qudt:upperBound
+FuelTank01AlarmThresholdRange;ship:AlarmThresholdRange;L;0.1;0.9
+FuelTank02AlarmThresholdRange;ship:AlarmThresholdRange;L;0.1;0.9
+FuelTank05AlarmThresholdRange;ship:AlarmThresholdRange;L;0.4;0.9
+FuelTank06AlarmThresholdRange;ship:AlarmThresholdRange;L;0.4;0.9
+FuelTank07AlarmThresholdRange;ship:AlarmThresholdRange;L;0.2;0.9
+FuelTank08AlarmThresholdRange;ship:AlarmThresholdRange;L;0.2;0.9
+FuelTank15AlarmThresholdRange;ship:AlarmThresholdRange;L;0.1;0.95
+FreshwaterTank14AlarmThresholdRange;ship:AlarmThresholdRange;L;0.2;
+BilgeWaterTank12AlarmThresholdRange;ship:AlarmThresholdRange;L;;0.8
+InclinationAlarmThresholdRange;ship:AlarmThresholdRange;DEG;8.0;
+MachineRoomTempAlarmThresholdRange;ship:AlarmThresholdRange;DEG_C;5.0;60.0

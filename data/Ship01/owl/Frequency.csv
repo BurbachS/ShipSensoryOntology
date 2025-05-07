@@ -1,0 +1,4 @@
+Individual;rdf:type;qudt:numericValue;qudt:hasUnit
+BModuleFrequency;ssn-systems:Frequency;1;Second
+EModuleFrequency;ssn-systems:Frequency;1;Second
+HModuleFrequency;ssn-systems:Frequency;1;Second

@@ -1,0 +1,4 @@
+Individual;rdf:type
+Deck;geo:SpatialThing
+EngineRoom;geo:SpatialThing
+Bridge;geo:SpatialThing

@@ -1,0 +1,4 @@
+Individual;rdf:type;ssn:hasSystemProperty
+BModuleSystemCapability;ssn-systems:SystemCapability;BModuleFrequency, BModuleMeasurementRange
+EModuleSystemCapability;ssn-systems:SystemCapability;EModuleFrequency
+HModuleSystemCapability;ssn-systems:SystemCapability;HModuleFrequency

@@ -1,0 +1,2 @@
+Individual;rdf:type;qudt:hasUnit;qudt:lowerBound;qudt:upperBound
+BModuleMeasurementRange;ssn-systems:MeasurementRange;MilliA;4;20

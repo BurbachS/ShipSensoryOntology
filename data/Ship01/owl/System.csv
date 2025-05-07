@@ -1,0 +1,4 @@
+Individual;rdf:type;ssn:hasSubSystem;ssn:hasSystemCapability
+BModuleAnalogSystem;ssn:System;FuelTank01Sensor, FuelTank02Sensor, FuelTank05Sensor, FuelTank06Sensor, FuelTank07Sensor, FuelTank08Sensor, FuelTank15Sensor, FreshwaterTank14Sensor, BilgeWaterTank12Sensor;BModuleSystemCapability
+EModuleBinarySystem;ssn:System;KFWAPumpPowerIndicatorSensor;EModuleSystemCapability
+HModuleAnalogSystem;ssn:System;StarboardGearBoxLubOilTemperatureSensor, PortGearBoxLubOilTemperatureSensor, MachineRoomTemperatureSensor;HModuleSystemCapability

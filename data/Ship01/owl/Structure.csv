@@ -1,0 +1,4 @@
+Individual;rdf:type;sosa:hosts;geo:location
+ShoreConnectionStructure;ship:Structure;ShoreConnectionActivePowerSensor, ShoreConnectionConsumptionSensor, ShoreConnectionCurrentL1Sensor, ShoreConnectionCurrentL2Sensor, ShoreConnectionCurrentL2Sensor, ShoreConnectionFrequencySensor, ShoreConnectionOnSensor, ShoreConnectionVoltageSensor;
+Wall;ship:Structure;MachineRoomTemperatureSensor;EngineRoom
+Rack;ship:Structure;TankAlarmActiveSensor;

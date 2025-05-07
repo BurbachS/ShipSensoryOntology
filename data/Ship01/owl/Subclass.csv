@@ -1,0 +1,8 @@
+Class;rdfs:subClassOf
+EngineComp;Platform
+Structure;Platform
+Device;Platform
+GeneralSensor;Sensor
+EngineSensor;Sensor
+AggregatedObservation;Observation
+AnomalyObservation;Observation
