@@ -1,0 +1,1 @@
+ ontop.bat query -p ontop.properties -m mapping.ttl -q CQs/C01_1g.rq

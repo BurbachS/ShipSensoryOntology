@@ -1,0 +1,389 @@
+@prefix ex: <http://example.org/individuals#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix ssn-systems: <http://www.w3.org/ns/ssn/systems/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix ship: <http://example.org/ship#> .
+
+
+
+#########################################################################
+#  Subclass
+#########################################################################
+
+ex:SubclassMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "subclasses" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/ship#{Class}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdfs:subClassOf ;
+    rr:objectMap [ rr:template "http://www.w3.org/ns/sosa/{rdfs__subClassOf}" ]
+  ] ;
+.
+
+#########################################################################
+#  Observation
+#########################################################################
+
+ex:ObservationMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "observations" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/observation/{sensor}/{timestamp}" ;
+	rr:class    sosa:Observation
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate sosa:madeBySensor ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sensor}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:resultTime ;
+    rr:objectMap [ rr:column "timestamp" ; rr:datatype xsd:dateTime ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:hasSimpleResult ;
+    rr:objectMap [ rr:column "value" ; rr:datatype xsd:float ]
+  ]
+.
+
+#########################################################################
+#  AggregatedObservation
+#########################################################################
+
+ex:AggregatedObservationMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "aggregated_observations" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/individuals#{Individual}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant ship:AggregatedObservation ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:hasFeatureOfInterest ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sosa__hasFeatureOfInterest}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:madeBySensor ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sosa__madeBySensor}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:observedProperty ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sosa__observedProperty}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate qudt:numericValue ;
+	rr:objectMap [ rr:column "qudt__numericValue" ; rr:datatype xsd:float ]
+    #rr:objectMap [ rr:template "http://example.org/individuals#{qudt__numericValue}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate qudt:hasUnit ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{qudt__hasUnit}" ]
+  ] ;
+.
+
+#########################################################################
+#  GeneralSensor
+#########################################################################
+
+ex:GeneralSensorMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "general_sensors" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/individuals#{Individual}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant ship:GeneralSensor ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate ship:hasSensorProperty ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{ship__hasSensorProperty}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate ssn:detects ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{ssn__detects}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:isHostedBy ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sosa__isHostedBy}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:madeObservation ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sosa__madeObservation}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:observes ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sosa__observes}" ]
+  ] ;
+.
+
+#########################################################################
+#  EngineSensor
+#########################################################################
+
+ex:EngineSensorMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "engine_sensors" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/individuals#{Individual}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant ship:EngineSensor ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate ship:hasSensorProperty ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{ship__hasSensorProperty}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate ssn:detects ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{ssn__detects}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:isHostedBy ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sosa__isHostedBy}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:madeObservation ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sosa__madeObservation}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:observes ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sosa__observes}" ]
+  ] ;
+.
+
+#########################################################################
+#  Device
+#########################################################################
+
+ex:DeviceMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "devices" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/individuals#{Individual}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant ship:Device ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:hosts ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sosa__hosts}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate geo:location ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{geo__location}" ]
+  ] ;
+.
+
+#########################################################################
+#  EngineComp
+#########################################################################
+
+ex:EngineCompMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "engine_comp" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/individuals#{Individual}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant ship:EngineComp ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:hosts ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sosa__hosts}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate geo:location ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{geo__location}" ]
+  ] ;
+.
+
+#########################################################################
+#  Structure
+#########################################################################
+
+ex:StructureMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "structures" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/individuals#{Individual}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant ship:Structure ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:hosts ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sosa__hosts}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate geo:location ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{geo__location}" ]
+  ] ;
+.
+
+#########################################################################
+#  AlarmThresholdRange
+#########################################################################
+
+ex:AlarmThresholdMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "alarm_threshold" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/individuals#{Individual}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant ship:AlarmThresholdRange ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate qudt:hasUnit ;
+    rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{qudt__hasUnit}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate qudt:lowerBound ;
+	rr:objectMap [ rr:column "qudt__lowerBound" ; rr:datatype xsd:decimal ]	
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate qudt:upperBound ;
+	rr:objectMap [ rr:column "qudt__upperBound" ; rr:datatype xsd:decimal ]	
+  ] ;
+.
+
+#########################################################################
+#  NormValueRange
+#########################################################################
+
+ex:NormRangeMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "norm_range" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/individuals#{Individual}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant ship:NormValueRange ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate qudt:hasUnit ;
+    rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{qudt__hasUnit}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate qudt:lowerBound ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{qudt__lowerBound}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate qudt:upperBound ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{qudt__upperBound}" ]
+  ] ;
+.
+
+#########################################################################
+#  System
+#########################################################################
+
+ex:SystemMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "systems" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/individuals#{Individual}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant ssn:System ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate ssn:hasSubSystem ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{ssn__hasSubSystem}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate ssn:hasSystemCapability ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{ssn__hasSystemCapability}" ]
+  ] ;
+.
+
+#########################################################################
+#  SystemCapability
+#########################################################################
+
+ex:SystemCapabilityMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "sys_capability" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/individuals#{Individual}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant ssn-systems:SystemCapability ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate ssn:hasSystemProperty ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{ssn__hasSystemProperty}" ]
+  ] ;
+.
+
+#########################################################################
+#  Frequency
+#########################################################################
+
+ex:FrequencyMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "frequency" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/individuals#{Individual}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant ssn-systems:Frequency ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate qudt:numericValue ;
+    rr:objectMap [ rr:column "qudt__numericValue" ; rr:datatype xsd:decimal ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate qudt:hasUnit ;
+    rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{qudt__hasUnit}" ]
+  ] ;
+.
+
+#########################################################################
+#  MeasurementRange
+#########################################################################
+
+ex:MeasurementRangeMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "measurement_range" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/individuals#{Individual}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant ssn-systems:MeasurementRange ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate qudt:hasUnit ;
+    rr:objectMap [ rr:template "http://qudt.org/vocab/unit/{qudt__hasUnit}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate qudt:lowerBound ;
+	rr:objectMap [ rr:column "qudt__lowerBound" ; rr:datatype xsd:decimal ]	
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate qudt:upperBound ;
+	rr:objectMap [ rr:column "qudt__upperBound" ; rr:datatype xsd:decimal ]	
+  ] ;
+.
+
