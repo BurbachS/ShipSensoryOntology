@@ -7,7 +7,6 @@ PREFIX ex: <http://example.org/individuals#>
 SELECT ?device
 WHERE{ 
   ?sensor sosa:isHostedBy ?device ;
-          sosa:observes ex:Temperature .
-    	
+          sosa:observes ex:Temperature .    	
   ?device a ship:Device .
 }
