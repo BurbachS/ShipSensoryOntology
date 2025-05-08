@@ -1,0 +1,11 @@
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+
+SELECT DISTINCT ?observation ?observableProperty ?featureOfInterest
+WHERE {
+  ?observation a ?observationType .
+    	
+  ?observationType rdfs:subClassOf sosa:Observation .
+
+    OPTIONAL { ?observation sosa:observedProperty ?observableProperty . }
+    OPTIONAL { ?observation sosa:hasFeatureOfInterest ?featureOfInterest . }
+}

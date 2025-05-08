@@ -1,0 +1,10 @@
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX ex: <http://example.org/individuals#>
+
+SELECT DISTINCT ?unit
+WHERE {
+  ?observation sosa:hasFeatureOfInterest ex:FuelLevel ;
+               qudt:hasUnit ?unit .
+
+}

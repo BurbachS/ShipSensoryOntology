@@ -1,0 +1,21 @@
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ship: <http://example.org/ship#>
+PREFIX ex: <http://example.org/individuals#>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+
+SELECT DISTINCT ?temperatureObservation ?value ?time
+WHERE {
+	?sensor a ship:GeneralSensor ;
+            sosa:observes ex:Temperature ;
+		    sosa:isHostedBy ?platform .
+	
+	?platform geo:location ex:EngineRoom . 
+
+    ?temperatureObservation sosa:madeBySensor ?sensor ;
+                            sosa:hasSimpleResult ?value ;
+                            sosa:resultTime ?time .
+
+}
+ORDER BY DESC(?time)
+LIMIT 1
+

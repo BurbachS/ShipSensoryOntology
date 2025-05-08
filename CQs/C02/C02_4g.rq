@@ -1,0 +1,9 @@
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+
+SELECT DISTINCT ?observation ?time ?value
+WHERE {
+  ?observation sosa:resultTime ?time ;
+               sosa:hasSimpleResult ?value .
+}
+LIMIT 20

@@ -1,7 +1,0 @@
-PREFIX sosa: <http://www.w3.org/ns/sosa/>
-
-SELECT DISTINCT ?sensor ?platform
-WHERE {
-  ?sensor sosa:isHostedBy ?platform .   
-
-}

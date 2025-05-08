@@ -1,0 +1,9 @@
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+
+SELECT ?sensor ?stimulus ?observableProperty
+WHERE {
+  ?sensor ssn:detects ?stimulus .
+          
+  ?stimulus ssn:isProxyFor ?observableProperty .
+}
+

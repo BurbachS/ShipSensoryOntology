@@ -1,0 +1,10 @@
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX ex: <http://example.org/individuals#>
+PREFIX ship: <http://example.org/ship#>
+
+SELECT ?value ?unit
+WHERE {
+  ex:FirePumpPressureMeanValue a ship:AggregatedObservation ;
+		                       qudt:numericValue ?value ;
+                               qudt:hasUnit ?unit .
+}

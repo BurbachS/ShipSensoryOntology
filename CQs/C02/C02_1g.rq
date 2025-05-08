@@ -1,0 +1,6 @@
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+
+SELECT ?observation
+WHERE {
+  ?observation rdfs:subClassOf sosa:Observation .
+}

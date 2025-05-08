@@ -1,0 +1,12 @@
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX ex: <http://example.org/individuals#>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+
+SELECT DISTINCT ?physicalProperty
+WHERE {	
+	?sensor ssn:detects ?physicalProperty ;
+		    sosa:isHostedBy ?device .
+	
+	?device geo:location ex:Deck .
+}

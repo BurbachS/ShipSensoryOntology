@@ -1,0 +1,8 @@
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?sensor ?observedProperty
+WHERE {
+  ?sensor sosa:observes ?observedProperty .
+  
+}
