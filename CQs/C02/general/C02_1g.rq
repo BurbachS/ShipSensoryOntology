@@ -1,3 +1,5 @@
+# C02.1g - What types of observations are distinguished on a ship?
+
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 
 SELECT ?observation

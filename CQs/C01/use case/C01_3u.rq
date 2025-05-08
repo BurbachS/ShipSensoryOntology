@@ -1,3 +1,5 @@
+# C01.3u - What physical property is measured by fuel tank sensors?
+
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX ship: <http://example.org/ship#>
 PREFIX ex: <http://example.org/individuals#>
@@ -9,6 +11,6 @@ WHERE {
           sosa:madeObservation ?observation .
 		  
   ?observation sosa:hasFeatureOfInterest ex:FuelLevel ;
-               sosa:observedProperty ?observedProperty .
+          sosa:observedProperty ?observedProperty .
 }
 

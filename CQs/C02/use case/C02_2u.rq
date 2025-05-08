@@ -1,3 +1,5 @@
+# C02.2u - What was the latest temperature in the engine room deck?
+
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX ship: <http://example.org/ship#>
 PREFIX ex: <http://example.org/individuals#>
@@ -18,4 +20,3 @@ WHERE {
 }
 ORDER BY DESC(?time)
 LIMIT 1
-

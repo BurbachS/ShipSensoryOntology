@@ -1,3 +1,5 @@
+# C02.2g - Which features or properties of the ship or its environment can be observed?
+
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 
 SELECT DISTINCT ?observation ?observableProperty ?featureOfInterest

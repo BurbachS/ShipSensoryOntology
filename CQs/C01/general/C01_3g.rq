@@ -1,8 +1,9 @@
+# C01.3g - What technical characteristics (measurement ranges or alarm thresholds) are defined for ship sensors?
+
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX ship: <http://example.org/ship#>
 
 SELECT DISTINCT ?sensor ?sensorProperty
 WHERE {
   ?sensor ship:hasSensorProperty ?sensorProperty .
-
 }

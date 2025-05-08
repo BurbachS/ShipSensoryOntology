@@ -1,3 +1,5 @@
+# C01.2u - How high must the measured value of the FuelTank01Sensor be for an alarm to be triggered?
+
 PREFIX ship: <http://example.org/ship#>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
@@ -11,4 +13,3 @@ WHERE {
               qudt:lowerBound ?lowerBound ;
               qudt:upperBound ?upperBound .
 }
-

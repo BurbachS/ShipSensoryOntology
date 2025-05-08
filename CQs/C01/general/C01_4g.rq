@@ -1,7 +1,8 @@
+# C01.4g - How are sensors connected to ship systems or structures?
+
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 
 SELECT DISTINCT ?sensor ?platform
 WHERE {
-  ?sensor sosa:isHostedBy ?platform .   
-
+  ?sensor sosa:isHostedBy ?platform .
 }

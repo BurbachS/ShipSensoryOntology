@@ -1,3 +1,5 @@
+# C02.3g - Which physical conditions are detected by sensors, and what do they indicate?
+
 PREFIX ssn: <http://www.w3.org/ns/ssn/>
 
 SELECT ?sensor ?stimulus ?observableProperty
@@ -6,4 +8,3 @@ WHERE {
           
   ?stimulus ssn:isProxyFor ?observableProperty .
 }
-

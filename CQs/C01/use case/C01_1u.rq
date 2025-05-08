@@ -1,3 +1,5 @@
+# C01.1u - Which sensors measure engine rpm?
+
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX ship: <http://example.org/ship#>
 PREFIX ex: <http://example.org/individuals#>
@@ -8,4 +10,3 @@ WHERE {
           sosa:observes ex:RotationSpeed .
 
 }
-
