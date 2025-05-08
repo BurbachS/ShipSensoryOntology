@@ -1,7 +1,6 @@
 # C03.3g - What technical properties are assigned to ship systems?
 
 PREFIX ssn: <http://www.w3.org/ns/ssn/>
-PREFIX ssn-systems: <http://www.w3.org/ns/ssn/systems/>
 
 SELECT DISTINCT ?system ?capability ?property
 WHERE {
