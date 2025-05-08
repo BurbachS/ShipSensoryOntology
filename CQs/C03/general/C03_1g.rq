@@ -7,6 +7,6 @@ PREFIX ship: <http://example.org/ship#>
 SELECT DISTINCT ?sensor ?platform ?system
 WHERE {
   ?system a ssn:System ;
-	      ssn:hasSubSystem ?sensor .
+	  ssn:hasSubSystem ?sensor .
   ?sensor sosa:isHostedBy ?platform . 
 }
