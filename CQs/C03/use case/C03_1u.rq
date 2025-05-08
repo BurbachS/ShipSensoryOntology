@@ -1,0 +1,13 @@
+# C03.1u - Which devices host the temperature sensor?
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ship: <http://example.org/ship#>
+PREFIX ex: <http://example.org/individuals#>
+
+SELECT ?device
+WHERE{ 
+  ?sensor sosa:isHostedBy ?device ;
+          sosa:observes ex:Temperature .
+    	
+  ?device a ship:Device .
+}

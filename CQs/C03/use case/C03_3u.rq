@@ -1,0 +1,27 @@
+# C03.3u - What is the measurement frequency of the system that the fuel sensor is part of?
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ship: <http://example.org/ship#>
+PREFIX ex: <http://example.org/individuals#>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX ssn-systems: <http://www.w3.org/ns/ssn/systems/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+
+SELECT DISTINCT ?frequency ?unit
+WHERE {
+  ?system a ssn:System ;
+		  ssn:hasSubSystem ?sensor ;
+		  ssn:hasSystemCapability ?sysCapability .		  
+  ?sensor sosa:madeObservation ?observation .
+  ?observation sosa:hasFeatureOfInterest ex:FuelLevel .
+  ?sysCapability ssn:hasSystemProperty ?sysProperty .
+  ?sysProperty a ssn-systems:Frequency ;
+               qudt:numericValue ?frequency ;
+			   qudt:hasUnit ?unit .
+}
+
+
+
+
+
+
