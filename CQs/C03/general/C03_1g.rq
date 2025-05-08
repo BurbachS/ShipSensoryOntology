@@ -1,0 +1,12 @@
+# C03.1g - Which system and structural units on a ship are the sensors part of?
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX ship: <http://example.org/ship#>
+
+SELECT DISTINCT ?sensor ?platform ?system
+WHERE {
+  ?system a ssn:System ;
+	      ssn:hasSubSystem ?sensor .
+  ?sensor sosa:isHostedBy ?platform . 
+}

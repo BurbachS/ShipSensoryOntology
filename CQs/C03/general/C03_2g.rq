@@ -1,0 +1,10 @@
+# C03.2g - Where are the sensors located on the ship?
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+
+SELECT DISTINCT ?sensor ?platform ?location
+WHERE {
+  ?sensor sosa:isHostedBy ?platform .
+  ?platform geo:location ?location .
+}
