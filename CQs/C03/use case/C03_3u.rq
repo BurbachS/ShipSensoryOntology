@@ -10,14 +10,14 @@ PREFIX qudt: <http://qudt.org/schema/qudt/>
 SELECT DISTINCT ?frequency ?unit
 WHERE {
   ?system a ssn:System ;
-		  ssn:hasSubSystem ?sensor ;
-		  ssn:hasSystemCapability ?sysCapability .		  
+          ssn:hasSubSystem ?sensor ;
+	  ssn:hasSystemCapability ?sysCapability .		  
   ?sensor sosa:madeObservation ?observation .
   ?observation sosa:hasFeatureOfInterest ex:FuelLevel .
   ?sysCapability ssn:hasSystemProperty ?sysProperty .
   ?sysProperty a ssn-systems:Frequency ;
                qudt:numericValue ?frequency ;
-			   qudt:hasUnit ?unit .
+	       qudt:hasUnit ?unit .
 }
 
 
