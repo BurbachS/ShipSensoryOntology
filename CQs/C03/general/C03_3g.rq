@@ -7,7 +7,6 @@ SELECT DISTINCT ?system ?capability ?property
 WHERE {
   ?system a ssn:System ;
           ssn:hasSystemCapability ?capability .
-
   ?capability ssn:hasSystemProperty ?property .
 }
 ORDER BY ASC(?system)
