@@ -1,0 +1,12 @@
+# C02.5u - What anomalies were detected by sensor PortEngineSpeedSensor?
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ship: <http://example.org/ship#>
+PREFIX ex: <http://example.org/individuals#>
+
+SELECT DISTINCT ?anomaly
+WHERE {
+  ?obs a ship:AnomalyObservation ;
+       sosa:madeBySensor ex:PortEngineSpeedSensor ;
+       rdfs:label ?anomaly .
+}

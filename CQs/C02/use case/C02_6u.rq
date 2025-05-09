@@ -1,0 +1,14 @@
+# C02.6u - Which sensor records the most anomalies?
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ship: <http://example.org/ship#>
+
+SELECT DISTINCT ?sensor (COUNT(DISTINCT ?anomaly) AS ?anomalyCount)
+WHERE {
+  ?obs a ship:AnomalyObservation ;
+       sosa:madeBySensor ?sensor ;
+       rdfs:label ?anomaly .
+}
+GROUP BY ?sensor
+ORDER BY DESC(?anomalyCount)
+LIMIT 1
