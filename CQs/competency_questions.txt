@@ -1,0 +1,61 @@
+#########################################
+### C01: Sensors (Ship Sensor Systems)###
+#########################################
+
+General
+1. What types of sensors are installed on a ship?
+2. What do these ship sensors observe?
+3. What technical characteristics (measurement ranges or alarm thresholds) are defined for ship sensors?
+4. How are sensors connected to ship systems or structures?
+
+Use case specific
+1. Which sensors measure engine rpm?
+2. How high must the measured value of sensor FuelTank01Sensor be for an alarm to be triggered?
+3. What physical property is measured by fuel tank sensors?
+4. Where is the fuel tank sensor located?
+
+
+#########################
+### C02: Observations ###
+#########################
+
+General
+1. What types of observations are distinguished on a ship?
+2. Which features or properties of the ship or its environment can be observed?
+3. Which physical conditions are detected by sensors, and what do they indicate?
+4. How are the results of raw data observations represented?
+5. How are anomalies modeled as special types of observations
+
+
+Use case specific
+1. What is the average fire pump pressure?
+2. What was the latest temperature in the engine room deck?
+3. Where are sensors located that observe the volume?
+4. What physical properties are observed on deck?
+5. What anomalies were detected by sensor PortEngineSpeedSensor?
+6. Which sensor records the most anomalies?
+7. What unit does the observation of fuel level have?
+
+
+##################################
+### C03: Systems and Platforms ###
+##################################
+
+General
+1. Which systems and structural units on a ship are the sensors part of?
+2. Where are the sensors located on the ship?
+3. What technical properties are assigned to ship systems?
+
+Use case specific
+1. Which device hosts the temperature sensor?
+2. Where is the sensor installed that observes the fresh water level?
+3. What is the measurement frequency of the system that the fuel sensor is part of?
+
+##############################
+### C04: Advanced Modeling ###
+##############################
+
+Use case specific
+1. What were the engine RPM values on 14.03.2021 when the engine room temperature exceeded 23°C?
+2. Where are the sensors located that observe the highest number of anomalies?
+3. Which 'MaxDataType' anomaly observations had a value at least 30% higher than the mean value recorded by the respective sensor?
