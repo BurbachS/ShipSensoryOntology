@@ -60,7 +60,8 @@ SELECT
             split_part(REPLACE(FILENAME, '\\', '/'), '/', -4), '-',   -- Year
             split_part(REPLACE(FILENAME, '\\', '/'), '/', -3), '-',   -- Month
             split_part(REPLACE(FILENAME, '\\', '/'), '/', -2), ' ',   -- Day
-            time                                                     -- Time
+            -- time 
+            substring(CAST(time AS VARCHAR), 1, 8)                              
         ) AS TIMESTAMP
     ) AS timestamp -- The new combined timestamp column
 FROM
@@ -68,6 +69,7 @@ FROM
 """)
 
 print("\n✅ observations view created.")
+
 
 
 # Create aggregated_observations view 
@@ -91,6 +93,39 @@ FROM read_csv_auto(
 """)
 
 print("✅ aggregated_observations view created.")
+
+
+print(df.columns)
+
+
+
+# Create anomaly_observations view 
+con.execute("""
+CREATE OR REPLACE VIEW anomaly_observations AS
+SELECT   
+  -- normalize backslashes-slashes, then take the folder two levels up
+  split_part(
+    split_part(replace(filename, '\\', '/'), '/', -2),
+    '/', 1
+  ) AS anomaly_name,
+  -- normalize + take the basename, strip off ".csv"
+  regexp_replace(
+    split_part(replace(filename, '\\', '/'), '/', -1),
+    '\\.csv$', ''
+  ) AS sensor,
+  timestamp,
+  value,
+FROM read_csv_auto(
+  'data/Ship01/anomaly/*/*.csv',
+  DELIM=',',
+  HEADER=TRUE,
+  AUTO_DETECT=TRUE,
+  FILENAME=TRUE
+);
+""")
+print("✅ anomaly_observations view created.")
+
+
 
 # Create general_sensors view 
 con.execute("""
@@ -241,16 +276,19 @@ print("✅ norm_range view created.")
 con.execute("""
 CREATE OR REPLACE VIEW systems AS
 SELECT
-  "Individual"               AS Individual,
-  "rdf:type"                 AS rdf__type,
-  "ssn:hasSubSystem"         AS ssn__hasSubSystem,
-  "ssn:hasSystemCapability"  AS ssn__hasSystemCapability,         
+  raw."Individual"               AS Individual,
+  raw."rdf:type"                 AS rdf__type,
+  TRIM(s.x)                      AS ssn__hasSubSystem,
+  raw."ssn:hasSystemCapability"  AS ssn__hasSystemCapability,         
 FROM read_csv_auto(
   'data/Ship01/owl/System.csv',
   DELIM=';',
   HEADER=TRUE,
   AUTO_DETECT=TRUE
-)
+) AS raw
+CROSS JOIN UNNEST( STRING_SPLIT(raw."ssn:hasSubSystem", ',') ) AS s(x)
+WHERE raw."ssn:hasSubSystem" IS NOT NULL
+  AND TRIM(s.x) <> '';
 
 """)
 
@@ -261,16 +299,19 @@ print("✅ systems view created.")
 con.execute("""
 CREATE OR REPLACE VIEW sys_capability AS
 SELECT
-  "Individual"               AS Individual,
-  "rdf:type"                 AS rdf__type,
-  "ssn:hasSystemProperty"    AS ssn__hasSystemProperty,        
+  raw."Individual"               AS Individual,
+  raw."rdf:type"                 AS rdf__type,
+  TRIM(s.x)                      AS ssn__hasSystemProperty,        
 FROM read_csv_auto(
   'data/Ship01/owl/SystemCapability.csv',
   DELIM=';',
   HEADER=TRUE,
   AUTO_DETECT=TRUE
-)
-
+) AS raw
+CROSS JOIN UNNEST( STRING_SPLIT(raw."ssn:hasSystemProperty", ',') ) AS s(x)
+WHERE raw."ssn:hasSystemProperty" IS NOT NULL
+  AND TRIM(s.x) <> '';
+            
 """)
 
 print("✅ sys_capability view created.")
@@ -316,6 +357,27 @@ FROM read_csv_auto(
 
 print("✅ measurement_range view created.")
 
+
+# Create stimulus view 
+con.execute("""
+CREATE OR REPLACE VIEW stimulus AS
+SELECT
+  "Individual"               AS Individual,
+  "rdf:type"                 AS rdf__type,
+  "ssn:isProxyFor"           AS ssn__isProxyFor,  
+FROM read_csv_auto(
+  'data/Ship01/owl/Stimulus.csv',
+  DELIM=';',
+  HEADER=TRUE,
+  AUTO_DETECT=TRUE
+)
+
+""")
+
+print("✅ stimulus view created.")
+
+
+
 ####################################################################################
 
 print("\nTest sample for subclasses view:")
@@ -328,6 +390,10 @@ for row in con.execute("SELECT * FROM observations LIMIT 10").fetchall():
 
 print("\nTest sample for aggregated_observations view:")
 for row in con.execute("SELECT * FROM aggregated_observations LIMIT 10").fetchall():
+    print(row)
+
+print("\nTest sample for anomaly_observations view:")
+for row in con.execute("SELECT * FROM anomaly_observations LIMIT 10").fetchall():
     print(row)
 
 print("\nTest sample for general_sensors view:")
@@ -372,4 +438,8 @@ for row in con.execute("SELECT * FROM frequency LIMIT 10").fetchall():
 
 print("\nTest sample for measurement_range view:")
 for row in con.execute("SELECT * FROM measurement_range LIMIT 10").fetchall():
+    print(row)
+
+print("\nTest sample for stimulus view:")
+for row in con.execute("SELECT * FROM stimulus LIMIT 10").fetchall():
     print(row)
