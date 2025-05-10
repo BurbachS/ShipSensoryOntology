@@ -1,0 +1,22 @@
+# C04.1u - What were the engine RPM values on 14.03.2021 when the engine room temperature exceeded 23°C?
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ship: <http://example.org/ship#>
+PREFIX ex: <http://example.org/individuals#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?rpmObs ?rpm ?tempObs ?temp
+WHERE {
+  ?tempObs a sosa:Observation ;
+           sosa:madeBySensor ex:MachineRoomTemperatureSensor ;
+           sosa:hasSimpleResult ?temp ;
+           sosa:resultTime ?timestamp .
+  ?rpmObs a sosa:Observation ;
+          sosa:madeBySensor ex:StarboardEngineSpeedSensor ;
+          sosa:hasSimpleResult ?rpm ;
+          sosa:resultTime ?timestamp .		
+		  
+  FILTER(STRSTARTS(STR(?timestamp), "2021-03-14"))
+  FILTER((?temp) > 23.0)
+}
+ORDER BY ?timestamp

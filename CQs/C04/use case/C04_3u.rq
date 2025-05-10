@@ -1,0 +1,25 @@
+# C04.3u - Which 'MaxDataType' anomaly observations had a value at least 30% higher than the mean value recorded by the respective sensor?
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX qudt: <http://qudt.org/schema/qudt/> 
+PREFIX ship: <http://example.org/ship#>
+ 
+SELECT ?obs ?value ?meanvalue
+WHERE {
+  ?obs a ship:AnomalyObservation ;
+       sosa:madeBySensor ?sensor ;
+	   rdfs:label "MaxDataType" ;
+	   sosa:hasSimpleResult ?value . 
+  ?mean a ship:AggregatedObservation ;
+        sosa:madeBySensor ?sensor ;
+		qudt:numericValue ?meanvalue .
+		
+  FILTER((?value) > 1.3 * (?meanvalue))
+}
+ORDER BY ?time
+
+
+
+
+
+

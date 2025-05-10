@@ -1,0 +1,17 @@
+# C04.2u - Where are the sensors located that observe the highest number of anomalies?
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ship: <http://example.org/ship#>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+
+SELECT DISTINCT ?sensor (COUNT(DISTINCT ?anomaly) AS ?anomalyCount) ?location 
+WHERE {
+  ?obs a ship:AnomalyObservation ;
+       sosa:madeBySensor ?sensor ;
+       rdfs:label ?anomaly .
+  ?sensor sosa:isHostedBy ?platform .
+  ?platform geo:location ?location .  
+}
+GROUP BY ?sensor ?location
+ORDER BY DESC(?anomalyCount)
+LIMIT 5
