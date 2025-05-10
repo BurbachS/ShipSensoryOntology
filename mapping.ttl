@@ -12,7 +12,6 @@
 @prefix ship: <http://example.org/ship#> .
 
 
-
 #########################################################################
 #  Subclass
 #########################################################################
@@ -88,6 +87,39 @@ ex:AggregatedObservationMapping a rr:TriplesMap ;
   rr:predicateObjectMap [
     rr:predicate qudt:hasUnit ;
     rr:objectMap [ rr:template "http://example.org/individuals#{qudt__hasUnit}" ]
+  ] ;
+.
+
+#########################################################################
+#  AnomalyObservation
+#########################################################################
+
+ex:AnomalyObservationMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "anomaly_observations" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/anomaly/{anomaly_name}/{sensor}/{timestamp}" ;
+	rr:class    ship:AnomalyObservation
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant ship:AnomalyObservation ]
+  ] ;  
+  rr:predicateObjectMap [
+    rr:predicate sosa:madeBySensor ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{sensor}" ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:resultTime ;
+    rr:objectMap [ rr:column "timestamp" ; rr:datatype xsd:dateTime ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate sosa:hasSimpleResult ;
+    rr:objectMap [ rr:column "value" ; rr:datatype xsd:float ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate rdfs:label ;
+    rr:objectMap [ rr:column "anomaly_name" ; rr:datatype xsd:string ]
   ] ;
 .
 
@@ -387,3 +419,26 @@ ex:MeasurementRangeMapping a rr:TriplesMap ;
   ] ;
 .
 
+#########################################################################
+#  Stimulus
+#########################################################################
+
+ex:StimulusMapping a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "stimulus" ] ;
+  
+  rr:subjectMap [
+    rr:template "http://example.org/individuals#{Individual}" ;
+  ] ; 
+  rr:predicateObjectMap [
+    rr:predicate rdf:type ;
+    rr:objectMap [ rr:constant sosa:Stimulus ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate ssn:isProxyFor ;
+    rr:objectMap [ rr:template "http://example.org/individuals#{ssn__isProxyFor}" ]
+  ] ;
+.
+
+#########################################################################
+#  
+#########################################################################
