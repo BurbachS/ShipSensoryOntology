@@ -9,7 +9,7 @@
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix unit: <http://qudt.org/vocab/unit/> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix ship: <http://example.org/ship#> .
+@prefix ship: https://burbachs.github.io/ShipSensoryOntology/SHIP.owl .
 
 <http://example.org/ship-ontology> a owl:Ontology ;
 	
@@ -69,11 +69,11 @@ ship:EngineSensor a owl:Class ;
     rdfs:label "Engine Sensor" .
 
 ship:AlarmThresholdRange a owl:Class ;
-    rdfs:subClassOf ship:SensorProperty ;
-    rdfs:label "Alarm Threshold Range" .
+    rdfs:subClassOf ship:SensorProperty , qudt:QuantityValue ;
+    rdfs:label "Alarm Threshold Range" . 
 
 ship:NormValueRange a owl:Class ;
-    rdfs:subClassOf ship:SensorProperty ;
+    rdfs:subClassOf ship:SensorProperty , qudt:QuantityValue ;
     rdfs:label "Normal Value Range" .
 
 ship:SensorProperty a owl:Class ;
@@ -81,7 +81,7 @@ ship:SensorProperty a owl:Class ;
     rdfs:label "Sensor Property" .
 
 ship:AggregatedObservation a owl:Class ;
-    rdfs:subClassOf sosa:Observation ;
+    rdfs:subClassOf sosa:Observation , qudt:QuantityValue ;
     rdfs:label "Aggregated Observation" .
 
 ship:AnomalyObservation a owl:Class ;
