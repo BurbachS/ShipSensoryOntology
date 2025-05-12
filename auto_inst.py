@@ -3,8 +3,8 @@ from collections import defaultdict
 
 
 # --- CONFIGURATION ---
-ONTOLOGY_IN    = "SHIP/ship_ontology.ttl"
-ONTOLOGY_OUT   = "SHIP/instantiated_ship_ontology.ttl"
+ONTOLOGY_IN    = "SHIP.ttl"
+ONTOLOGY_OUT   = "SHIP_individuals.ttl"
 EXCEL_FILE     = "Property_Matrix/OWL_Property_Matrix.xlsx"
 
 EX_PREFIX_LINE = "@prefix ex: <http://example.org/individuals#> .\n"
