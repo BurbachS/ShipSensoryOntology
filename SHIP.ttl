@@ -176,12 +176,12 @@ ssn:hasSubSystem a owl:ObjectProperty ;
     rdfs:range ssn:System ;
     rdfs:label "has subsystem" .
 
-ssn:hasSystemCapability a owl:ObjectProperty ;
+ssn-systems:hasSystemCapability a owl:ObjectProperty ;
     rdfs:domain ssn:System ;
     rdfs:range ssn-systems:SystemCapability ;
     rdfs:label "has system capability" .
-
-ssn:hasSystemProperty a owl:ObjectProperty ;
+ 
+ssn-systems:hasSystemProperty a owl:ObjectProperty ;
     rdfs:domain ssn-systems:SystemCapability ;
     rdfs:range ssn:Property ;
     rdfs:label "has system property" .

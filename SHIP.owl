@@ -283,9 +283,19 @@ above the local reference ellipsoid).</rdfs:comment>
     
 
 
-    <!-- http://www.w3.org/ns/ssn/hasSystemCapability -->
+    <!-- http://www.w3.org/ns/ssn/isProxyFor -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/ssn/hasSystemCapability">
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/ssn/isProxyFor">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Stimulus"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+        <rdfs:label>is proxy for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/ssn/systems/hasSystemCapability -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/ssn/systems/hasSystemCapability">
         <rdfs:domain rdf:resource="http://www.w3.org/ns/ssn/System"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/ssn/systems/SystemCapability"/>
         <rdfs:label>has system capability</rdfs:label>
@@ -293,22 +303,12 @@ above the local reference ellipsoid).</rdfs:comment>
     
 
 
-    <!-- http://www.w3.org/ns/ssn/hasSystemProperty -->
+    <!-- http://www.w3.org/ns/ssn/systems/hasSystemProperty -->
 
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/ssn/hasSystemProperty">
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/ssn/systems/hasSystemProperty">
         <rdfs:domain rdf:resource="http://www.w3.org/ns/ssn/systems/SystemCapability"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/ssn/Property"/>
         <rdfs:label>has system property</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.w3.org/ns/ssn/isProxyFor -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/ssn/isProxyFor">
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Stimulus"/>
-        <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
-        <rdfs:label>is proxy for</rdfs:label>
     </owl:ObjectProperty>
     
 
