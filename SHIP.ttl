@@ -35,7 +35,7 @@
 	] ;
 	dct:created "2025-05-02"^^xsd:date ;
 	rdfs:comment "The SHIP Ontology provides a semantic model for representing shipboard sensor systems, their components, and observations. It extends the W3C SSN/SOSA ontology with 		maritime-specific concepts, such as engine components, sensor properties, aggregated and anomaly observations, and domain-specific value ranges. The ontology is designed to support 	condition monitoring, predictive maintenance, and real-time diagnostics in maritime environments."@en ;
-	dct:bibliographicCitation "Pavle Ivanovic, Simon Burbach, Maria Maleshkova (2025): SHIP – ShipSensoryOntology. https://doi.org/10.5281/zenodo.15390283" ;
+	dct:bibliographicCitation "Pavle Ivanovic, Simon Burbach, Maria Maleshkova (2025): SHIP – ShipSensoryOntology. https://doi.org/10.5281/zenodo.15390282" ;
 	dct:license <https://creativecommons.org/licenses/by/4.0/> ;
 
 	owl:imports <http://www.w3.org/ns/sosa/> ,
