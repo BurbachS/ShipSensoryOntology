@@ -12,7 +12,7 @@
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix ship: <https://burbachs.github.io/ShipSensoryOntology/SHIP.owl> .
 
-<http://example.org/ship-ontology> a owl:Ontology ;
+<https://burbachs.github.io/ShipSensoryOntology/SHIP.owl> a owl:Ontology ;
 	
 	dct:title "Ship Ontology for Sensory Systems" ;
 	dct:creator [
@@ -33,7 +33,7 @@
 		foaf:mbox <mailto:maleshkm@hsu-hh.de> ;
         	foaf:homepage <https://orcid.org/0000-0003-3458-4748>
 	] ;
-	dct:created "2025-05-08"^^xsd:date ;
+	dct:created "2025-05-02"^^xsd:date ;
 	dct:description "An OWL ontology extending SSN/SOSA for sensor data in maritime environments." ;
 	dct:license <https://creativecommons.org/licenses/by/4.0/> ;
 

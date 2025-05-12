@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://example.org/ship-ontology#"
-     xml:base="http://example.org/ship-ontology"
+<rdf:RDF xmlns="https://burbachs.github.io/ShipSensoryOntology/SHIP.owl#"
+     xml:base="https://burbachs.github.io/ShipSensoryOntology/SHIP.owl"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:dct="http://purl.org/dc/terms/"
      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
@@ -12,7 +12,7 @@
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:qudt="http://qudt.org/schema/qudt/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:ship="http://example.org/ship#"
+     xmlns:ship="https://burbachs.github.io/ShipSensoryOntology/SHIP.owl"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:sosa="http://www.w3.org/ns/sosa/"
      xmlns:unit="http://qudt.org/vocab/unit/"
@@ -21,12 +21,12 @@
      xmlns:dtype="http://www.linkedmodel.org/schema/dtype#"
      xmlns:schema="http://schema.org/"
      xmlns:ssn-systems="http://www.w3.org/ns/ssn/systems/">
-    <owl:Ontology rdf:about="http://example.org/ship-ontology">
+    <owl:Ontology rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owl">
         <owl:imports rdf:resource="http://qudt.org/3.0.0/schema/qudt"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/sosa/"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/ssn/"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/ssn/systems/"/>
-        <dct:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-05-08</dct:created>
+        <dct:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-05-02</dct:created>
         <dct:creator>
             <rdf:Description>
                 <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
@@ -149,16 +149,6 @@ above the local reference ellipsoid).</rdfs:comment>
     
 
 
-    <!-- http://example.org/ship#hasSensorProperty -->
-
-    <owl:ObjectProperty rdf:about="http://example.org/ship#hasSensorProperty">
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
-        <rdfs:range rdf:resource="http://example.org/ship#SensorProperty"/>
-        <rdfs:label>has sensor property</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://qudt.org/schema/qudt/hasUnit -->
 
     <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/hasUnit">
@@ -182,16 +172,6 @@ above the local reference ellipsoid).</rdfs:comment>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
         <rdfs:label>has feature of interest</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.w3.org/ns/sosa/hasResult -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/hasResult">
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
-        <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Result"/>
-        <rdfs:label>has result</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -232,16 +212,6 @@ above the local reference ellipsoid).</rdfs:comment>
         <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
         <rdfs:label>is observed by</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.w3.org/ns/sosa/isResultOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/sosa/isResultOf">
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Result"/>
-        <rdfs:range rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
-        <rdfs:label>is result of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -336,6 +306,17 @@ above the local reference ellipsoid).</rdfs:comment>
     
 
 
+    <!-- https://burbachs.github.io/ShipSensoryOntology/SHIP.owlhasSensorProperty -->
+
+    <owl:ObjectProperty rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlhasSensorProperty">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:range rdf:resource="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlSensorProperty"/>
+        <rdfs:comment>Represents an object property that links sensors to their normalized value ranges and low/high alarm thresholds.</rdfs:comment>
+        <rdfs:label>has sensor property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -398,96 +379,6 @@ above the local reference ellipsoid).</rdfs:comment>
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://example.org/ship#AggregatedObservation -->
-
-    <owl:Class rdf:about="http://example.org/ship#AggregatedObservation">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
-        <rdfs:label>Aggregated Observation</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/ship#AlarmThresholdRange -->
-
-    <owl:Class rdf:about="http://example.org/ship#AlarmThresholdRange">
-        <rdfs:subClassOf rdf:resource="http://example.org/ship#SensorProperty"/>
-        <rdfs:label>Alarm Threshold Range</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/ship#AnomalyObservation -->
-
-    <owl:Class rdf:about="http://example.org/ship#AnomalyObservation">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
-        <rdfs:label>Anomaly Observation</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/ship#Device -->
-
-    <owl:Class rdf:about="http://example.org/ship#Device">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
-        <rdfs:label>Device</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/ship#EngineComp -->
-
-    <owl:Class rdf:about="http://example.org/ship#EngineComp">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
-        <rdfs:label>Engine Component</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/ship#EngineSensor -->
-
-    <owl:Class rdf:about="http://example.org/ship#EngineSensor">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
-        <rdfs:label>Engine Sensor</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/ship#GeneralSensor -->
-
-    <owl:Class rdf:about="http://example.org/ship#GeneralSensor">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
-        <rdfs:label>General Sensor</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/ship#NormValueRange -->
-
-    <owl:Class rdf:about="http://example.org/ship#NormValueRange">
-        <rdfs:subClassOf rdf:resource="http://example.org/ship#SensorProperty"/>
-        <rdfs:label>Normal Value Range</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/ship#SensorProperty -->
-
-    <owl:Class rdf:about="http://example.org/ship#SensorProperty">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Property"/>
-        <rdfs:label>Sensor Property</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://example.org/ship#Structure -->
-
-    <owl:Class rdf:about="http://example.org/ship#Structure">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
-        <rdfs:label>Structure</rdfs:label>
-    </owl:Class>
     
 
 
@@ -581,7 +472,9 @@ sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P
     <!-- http://www.w3.org/ns/ssn/systems/Frequency -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/ssn/systems/Frequency">
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/systems/SystemProperty"/>
+        <rdfs:comment>Represents ssn-systems:Frequency class, extended with QUDT properties: unit and numericValue.</rdfs:comment>
         <rdfs:label>Frequency</rdfs:label>
     </owl:Class>
     
@@ -590,7 +483,9 @@ sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P
     <!-- http://www.w3.org/ns/ssn/systems/MeasurementRange -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/ssn/systems/MeasurementRange">
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/systems/SystemProperty"/>
+        <rdfs:comment>Represents ssn-systems:MeasurementRange class, extended with QUDT properties: unit, lowerBound, and upperBound.</rdfs:comment>
         <rdfs:label>MeasurementRange</rdfs:label>
     </owl:Class>
     
@@ -617,6 +512,112 @@ sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P
     <!-- http://xmlns.com/foaf/0.1/Person -->
 
     <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- https://burbachs.github.io/ShipSensoryOntology/SHIP.owlAggregatedObservation -->
+
+    <owl:Class rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlAggregatedObservation">
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <owl:disjointWith rdf:resource="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlAnomalyObservation"/>
+        <rdfs:comment>Represents observations containing mean values calculated for associated sensors, extended with QUDT properties: unit and numericValue.</rdfs:comment>
+        <rdfs:label>Aggregated Observation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://burbachs.github.io/ShipSensoryOntology/SHIP.owlAlarmThresholdRange -->
+
+    <owl:Class rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlAlarmThresholdRange">
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+        <rdfs:subClassOf rdf:resource="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlSensorProperty"/>
+        <owl:disjointWith rdf:resource="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlNormValueRange"/>
+        <rdfs:comment>Represents low and high alarm threshold values, extended with QUDT properties: unit, lowerBound, and upperBound.</rdfs:comment>
+        <rdfs:label>Alarm Threshold Range</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://burbachs.github.io/ShipSensoryOntology/SHIP.owlAnomalyObservation -->
+
+    <owl:Class rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlAnomalyObservation">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+        <rdfs:comment>Represents anomaly observations related to associated sensors.</rdfs:comment>
+        <rdfs:label>Anomaly Observation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://burbachs.github.io/ShipSensoryOntology/SHIP.owlDevice -->
+
+    <owl:Class rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlDevice">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+        <rdfs:comment>Represents physical devices that host associated general sensors.</rdfs:comment>
+        <rdfs:label>Device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://burbachs.github.io/ShipSensoryOntology/SHIP.owlEngineComp -->
+
+    <owl:Class rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlEngineComp">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+        <rdfs:comment>Represents physical engine components that host associated engine sensors.</rdfs:comment>
+        <rdfs:label>Engine Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://burbachs.github.io/ShipSensoryOntology/SHIP.owlEngineSensor -->
+
+    <owl:Class rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlEngineSensor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <owl:disjointWith rdf:resource="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlGeneralSensor"/>
+        <rdfs:comment>Represents the main engine and engine-related sensors.</rdfs:comment>
+        <rdfs:label>Engine Sensor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://burbachs.github.io/ShipSensoryOntology/SHIP.owlGeneralSensor -->
+
+    <owl:Class rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlGeneralSensor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+        <rdfs:comment>Represents general sensors, distinguished from main engine sensors, including those monitoring fuel level, room temperature, pump pressure, and other non-engine parameters.</rdfs:comment>
+        <rdfs:label>General Sensor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://burbachs.github.io/ShipSensoryOntology/SHIP.owlNormValueRange -->
+
+    <owl:Class rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlNormValueRange">
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
+        <rdfs:subClassOf rdf:resource="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlSensorProperty"/>
+        <rdfs:comment>Represents a normalized value range, determined by the physical properties of the hosting platform, extended with QUDT properties: unit, lowerBound, and upperBound.</rdfs:comment>
+        <rdfs:label>normalized physical value ranges</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://burbachs.github.io/ShipSensoryOntology/SHIP.owlSensorProperty -->
+
+    <owl:Class rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlSensorProperty">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/Property"/>
+        <rdfs:comment>Represents sensor-related properties, including value ranges and thresholds, that are specific to individual sensors.</rdfs:comment>
+        <rdfs:label>Sensor Property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://burbachs.github.io/ShipSensoryOntology/SHIP.owlStructure -->
+
+    <owl:Class rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlStructure">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+        <rdfs:comment>Represents physical structures that host an associated engine or general sensors.</rdfs:comment>
+        <rdfs:label>Structure</rdfs:label>
+    </owl:Class>
     
 
 
@@ -733,7 +734,27 @@ basic geo vocab
  Clearly in practice there will be limit to the accuracy of any such statement, but one would expect
  an accuracy appropriate for the size of the object and uses such as mapping .
  </rdfs:comment>
+        <rdfs:comment>Represents an extension of the WGS84 geo:location property by linking it to the SHIP ontology, with the domain set to sosa:Platform.</rdfs:comment>
         <rdfs:label>location</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlDevice"/>
+            <rdf:Description rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlEngineComp"/>
+            <rdf:Description rdf:about="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlStructure"/>
+        </owl:members>
     </rdf:Description>
 </rdf:RDF>
 
