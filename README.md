@@ -1,4 +1,4 @@
-# ShipSensoryOntology
+# SHIP – ShipSensoryOntology
 
 ##
 ## How to cite
