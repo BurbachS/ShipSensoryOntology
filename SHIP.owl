@@ -26,6 +26,7 @@
         <owl:imports rdf:resource="http://www.w3.org/ns/sosa/"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/ssn/"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/ssn/systems/"/>
+        <dct:bibliographicCitation>Pavle Ivanovic, Simon Burbach, Maria Maleshkova (2025): SHIP – ShipSensoryOntology. https://doi.org/10.5281/zenodo.15390283</dct:bibliographicCitation>
         <dct:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-05-02</dct:created>
         <dct:creator>
             <rdf:Description>
@@ -51,9 +52,9 @@
                 <foaf:name>Maria Maleshkova</foaf:name>
             </rdf:Description>
         </dct:creator>
-        <dct:description>An OWL ontology extending SSN/SOSA for sensor data in maritime environments.</dct:description>
         <dct:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <dct:title>Ship Ontology for Sensory Systems</dct:title>
+        <dct:title>SHIP – ShipSensoryOntology</dct:title>
+        <rdfs:comment xml:lang="en">The SHIP Ontology provides a semantic model for representing shipboard sensor systems, their components, and observations. It extends the W3C SSN/SOSA ontology with 		maritime-specific concepts, such as engine components, sensor properties, aggregated and anomaly observations, and domain-specific value ranges. The ontology is designed to support 	condition monitoring, predictive maintenance, and real-time diagnostics in maritime environments.</rdfs:comment>
     </owl:Ontology>
     
 
@@ -78,6 +79,12 @@
     <!-- http://purl.org/dc/elements/1.1/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/bibliographicCitation -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/bibliographicCitation"/>
     
 
 

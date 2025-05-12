@@ -14,7 +14,7 @@
 
 <https://burbachs.github.io/ShipSensoryOntology/SHIP.owl> a owl:Ontology ;
 	
-	dct:title "Ship Ontology for Sensory Systems" ;
+	dct:title "SHIP – ShipSensoryOntology" ;
 	dct:creator [
         	a foaf:Person ;
 	        foaf:name "Pavle Ivanovic" ;
@@ -34,7 +34,8 @@
         	foaf:homepage <https://orcid.org/0000-0003-3458-4748>
 	] ;
 	dct:created "2025-05-02"^^xsd:date ;
-	dct:description "An OWL ontology extending SSN/SOSA for sensor data in maritime environments." ;
+	rdfs:comment "The SHIP Ontology provides a semantic model for representing shipboard sensor systems, their components, and observations. It extends the W3C SSN/SOSA ontology with 		maritime-specific concepts, such as engine components, sensor properties, aggregated and anomaly observations, and domain-specific value ranges. The ontology is designed to support 	condition monitoring, predictive maintenance, and real-time diagnostics in maritime environments."@en ;
+	dct:bibliographicCitation "Pavle Ivanovic, Simon Burbach, Maria Maleshkova (2025): SHIP – ShipSensoryOntology. https://doi.org/10.5281/zenodo.15390283" ;
 	dct:license <https://creativecommons.org/licenses/by/4.0/> ;
 
 	owl:imports <http://www.w3.org/ns/sosa/> ,
