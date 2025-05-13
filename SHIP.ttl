@@ -87,7 +87,7 @@ ship:AlarmThresholdRange a owl:Class ;
 
 ship:NormValueRange a owl:Class ;
     rdfs:subClassOf ship:SensorProperty , qudt:QuantityValue ;
-    rdfs:label "normalized physical value ranges" ;
+    rdfs:label "Normalized Value Range" ;
 	rdfs:comment "Represents a normalized value range, determined by the physical properties of the hosting platform, extended with QUDT properties: unit, lowerBound, and upperBound." .
 	
 ship:SensorProperty a owl:Class ;
