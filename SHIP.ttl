@@ -235,7 +235,7 @@ geo:location a owl:ObjectProperty ;
     rdfs:domain sosa:Platform ;
     rdfs:range geo:SpatialThing ;
     rdfs:label "location" ;
-	rdfs:comment "Represents an extension of the WGS84 geo:location property by linking it to the SHIP ontology, with the domain set to sosa:Platform." .
+    rdfs:comment "Represents an extension of the WGS84 geo:location property by linking it to the SHIP ontology, with the domain set to sosa:Platform." .
 
 qudt:hasUnit a owl:ObjectProperty ;
     rdfs:label "has unit" .
