@@ -54,10 +54,14 @@ for sheet_name, df in sheets.items():
                     if not v:
                         continue
                     if prop == "rdf:type":
-                        pmap["a"].append(v)
+                        pmap["a"].append(v)  # rdf:type -> 'a'
                     else:
-                        pmap[prop].append(f"ex:{v}")
-
+                        # If literal (starts with a double quote), keep as-is
+                        if v.startswith('"') or v.startswith('unit'):
+                            pmap[prop].append(v)
+                        else:
+                            pmap[prop].append(f"ex:{v}")
+        
         # Format the triples block
         final_ttl += f"ex:{subj} "
         triples = []
