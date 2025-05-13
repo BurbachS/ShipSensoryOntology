@@ -2,6 +2,7 @@
 <rdf:RDF xmlns="https://burbachs.github.io/ShipSensoryOntology/SHIP.owl#"
      xml:base="https://burbachs.github.io/ShipSensoryOntology/SHIP.owl"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ex="http://example.org/individuals#"
      xmlns:dct="http://purl.org/dc/terms/"
      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -9,6 +10,7 @@
      xmlns:ssn="http://www.w3.org/ns/ssn/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:bibo="http://purl.org/ontology/bibo/"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:qudt="http://qudt.org/schema/qudt/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -54,7 +56,9 @@
         </dct:creator>
         <dct:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
         <dct:title>SHIP – ShipSensoryOntology</dct:title>
+        <bibo:doi>10.5281/zenodo.15390282</bibo:doi>
         <rdfs:comment xml:lang="en">The SHIP Ontology provides a semantic model for representing shipboard sensor systems, their components, and observations. It extends the W3C SSN/SOSA ontology with 		maritime-specific concepts, such as engine components, sensor properties, aggregated and anomaly observations, and domain-specific value ranges. The ontology is designed to support 	condition monitoring, predictive maintenance, and real-time diagnostics in maritime environments.</rdfs:comment>
+        <foaf:fundedBy rdf:resource="http://example.org/individuals#DTEC"/>
     </owl:Ontology>
     
 
@@ -85,6 +89,12 @@
     <!-- http://purl.org/dc/terms/bibliographicCitation -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/bibliographicCitation"/>
+    
+
+
+    <!-- http://purl.org/ontology/bibo/doi -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/ontology/bibo/doi"/>
     
 
 
@@ -130,6 +140,12 @@ above the local reference ellipsoid).</rdfs:comment>
     <!-- http://xmlns.com/foaf/0.1/based_near -->
 
     <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/based_near"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/fundedBy -->
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/fundedBy"/>
     
 
 
@@ -516,6 +532,12 @@ sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P
     
 
 
+    <!-- http://xmlns.com/foaf/0.1/Organization -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+    
+
+
     <!-- http://xmlns.com/foaf/0.1/Person -->
 
     <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
@@ -603,7 +625,7 @@ sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P
         <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
         <rdfs:subClassOf rdf:resource="https://burbachs.github.io/ShipSensoryOntology/SHIP.owlSensorProperty"/>
         <rdfs:comment>Represents a normalized value range, determined by the physical properties of the hosting platform, extended with QUDT properties: unit, lowerBound, and upperBound.</rdfs:comment>
-        <rdfs:label>normalized physical value ranges</rdfs:label>
+        <rdfs:label>Normalized Value Range</rdfs:label>
     </owl:Class>
     
 
@@ -625,6 +647,28 @@ sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P
         <rdfs:comment>Represents physical structures that host an associated engine or general sensors.</rdfs:comment>
         <rdfs:label>Structure</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/individuals#DTEC -->
+
+    <owl:NamedIndividual rdf:about="http://example.org/individuals#DTEC">
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+        <rdfs:comment>This research as part of the project SmartShip is funded by dtec.bw – Digitalization and Technology Research Center of the Bundeswehr which we gratefully acknowledge. dtec.bw is funded by the European Union – NextGenerationEU.</rdfs:comment>
+        <rdfs:label>Digitalization and Technology Research Center of the Bundeswehr</rdfs:label>
+        <foaf:homepage rdf:resource="https://dtecbw.de/home"/>
+    </owl:NamedIndividual>
     
 
 

@@ -1,6 +1,23 @@
+@prefix ex: <http://example.org/individuals#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix ssn-systems: <http://www.w3.org/ns/ssn/systems/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix ship: <https://burbachs.github.io/ShipSensoryOntology/SHIP.owl> .
+
+
 #################################################################
 
-# Ontology Individuals
+# Ontology Instances
 
 #################################################################
 
@@ -432,76 +449,76 @@ ex:PortEngineCoolantPressureSensor a ship:EngineSensor ;
     sosa:observes ex:Pressure .
 
 ex:FuelTank01AlarmThresholdRange a ship:AlarmThresholdRange ;
-    qudt:hasUnit ex:unit:L ;
-    qudt:lowerBound ex:"10%" ;
-    qudt:upperBound ex:"90%" .
+    qudt:hasUnit unit:L ;
+    qudt:lowerBound "10%" ;
+    qudt:upperBound "90%" .
 
 ex:FuelTank02AlarmThresholdRange a ship:AlarmThresholdRange ;
-    qudt:hasUnit ex:unit:L ;
-    qudt:lowerBound ex:"10%" ;
-    qudt:upperBound ex:"90%" .
+    qudt:hasUnit unit:L ;
+    qudt:lowerBound "10%" ;
+    qudt:upperBound "90%" .
 
 ex:FuelTank05AlarmThresholdRange a ship:AlarmThresholdRange ;
-    qudt:hasUnit ex:unit:L ;
-    qudt:lowerBound ex:"40%" ;
-    qudt:upperBound ex:"90%" .
+    qudt:hasUnit unit:L ;
+    qudt:lowerBound "40%" ;
+    qudt:upperBound "90%" .
 
 ex:FuelTank06AlarmThresholdRange a ship:AlarmThresholdRange ;
-    qudt:hasUnit ex:unit:L ;
-    qudt:lowerBound ex:"40%" ;
-    qudt:upperBound ex:"90%" .
+    qudt:hasUnit unit:L ;
+    qudt:lowerBound "40%" ;
+    qudt:upperBound "90%" .
 
 ex:FuelTank07AlarmThresholdRange a ship:AlarmThresholdRange ;
-    qudt:hasUnit ex:unit:L ;
-    qudt:lowerBound ex:"20%" ;
-    qudt:upperBound ex:"90%" .
+    qudt:hasUnit unit:L ;
+    qudt:lowerBound "20%" ;
+    qudt:upperBound "90%" .
 
 ex:FuelTank08AlarmThresholdRange a ship:AlarmThresholdRange ;
-    qudt:hasUnit ex:unit:L ;
-    qudt:lowerBound ex:"20%" ;
-    qudt:upperBound ex:"90%" .
+    qudt:hasUnit unit:L ;
+    qudt:lowerBound "20%" ;
+    qudt:upperBound "90%" .
 
 ex:FuelTank15AlarmThresholdRange a ship:AlarmThresholdRange ;
-    qudt:hasUnit ex:unit:L ;
-    qudt:lowerBound ex:"10%" ;
-    qudt:upperBound ex:"95%" .
+    qudt:hasUnit unit:L ;
+    qudt:lowerBound "10%" ;
+    qudt:upperBound "95%" .
 
 ex:FreshwaterTank14AlarmThresholdRange a ship:AlarmThresholdRange ;
-    qudt:hasUnit ex:unit:L ;
-    qudt:lowerBound ex:"20%" .
+    qudt:hasUnit unit:L ;
+    qudt:lowerBound "20%" .
 
 ex:BilgeWaterTank12AlarmThresholdRange a ship:AlarmThresholdRange ;
-    qudt:hasUnit ex:unit:L ;
-    qudt:upperBound ex:"80%" .
+    qudt:hasUnit unit:L ;
+    qudt:upperBound "80%" .
 
 ex:InclinationAlarmThresholdRange a ship:AlarmThresholdRange ;
-    qudt:hasUnit ex:unit:DEG ;
-    qudt:lowerBound ex:"8"^^xsd:decimal .
+    qudt:hasUnit unit:DEG ;
+    qudt:lowerBound "8"^^xsd:decimal .
 
 ex:MachineRoomTempAlarmThresholdRange a ship:AlarmThresholdRange ;
-    qudt:hasUnit ex:unit:DEG_C ;
-    qudt:lowerBound ex:"5"^^xsd:float ;
-    qudt:upperBound ex:"60"^^xsd:float .
+    qudt:hasUnit unit:DEG_C ;
+    qudt:lowerBound "5"^^xsd:float ;
+    qudt:upperBound "60"^^xsd:float .
 
 ex:InclinationNormValueRange a ship:NormValueRange ;
-    qudt:hasUnit ex:unit:DEG ;
-    qudt:lowerBound ex:"0"^^xsd:decimal ;
-    qudt:upperBound ex:"360"^^xsd:decimal .
+    qudt:hasUnit unit:DEG ;
+    qudt:lowerBound "0"^^xsd:decimal ;
+    qudt:upperBound "360"^^xsd:decimal .
 
 ex:MachineRoomTempNormValueRange a ship:NormValueRange ;
-    qudt:hasUnit ex:unit:DEG_C ;
-    qudt:lowerBound ex:"0"^^xsd:float ;
-    qudt:upperBound ex:"60"^^xsd:float .
+    qudt:hasUnit unit:DEG_C ;
+    qudt:lowerBound "0"^^xsd:float ;
+    qudt:upperBound "60"^^xsd:float .
 
 ex:StarboardEngineAlternatorCurrentNormValueRange a ship:NormValueRange ;
-    qudt:hasUnit ex:unit:MilliA ;
-    qudt:lowerBound ex:"0"^^xsd:float ;
-    qudt:upperBound ex:"200"^^xsd:float .
+    qudt:hasUnit unit:MilliA ;
+    qudt:lowerBound "0"^^xsd:float ;
+    qudt:upperBound "200"^^xsd:float .
 
 ex:PortEngineAlternatorCurrentNormValueRange a ship:NormValueRange ;
-    qudt:hasUnit ex:unit:MilliA ;
-    qudt:lowerBound ex:"0"^^xsd:float ;
-    qudt:upperBound ex:"200"^^xsd:float .
+    qudt:hasUnit unit:MilliA ;
+    qudt:lowerBound "0"^^xsd:float ;
+    qudt:upperBound "200"^^xsd:float .
 
 ex:HydrostaticPressure a sosa:Stimulus ;
     ssn:isProxyFor ex:Volume .
@@ -642,21 +659,21 @@ ex:HModuleSystemCapability a ssn-systems:SystemCapability ;
     ssn:hasSystemProperty ex:HModuleFrequency .
 
 ex:BModuleFrequency a ssn-systems:Frequency ;
-    qudt:numericValue ex:"1"^^xsd:decimal ;
-    qudt:hasUnit ex:unit:Second .
+    qudt:numericValue "1"^^xsd:decimal ;
+    qudt:hasUnit unit:Second .
 
 ex:EModuleFrequency a ssn-systems:Frequency ;
-    qudt:numericValue ex:"1"^^xsd:decimal ;
-    qudt:hasUnit ex:unit:Second .
+    qudt:numericValue "1"^^xsd:decimal ;
+    qudt:hasUnit unit:Second .
 
 ex:HModuleFrequency a ssn-systems:Frequency ;
-    qudt:numericValue ex:"1"^^xsd:decimal ;
-    qudt:hasUnit ex:unit:Second .
+    qudt:numericValue "1"^^xsd:decimal ;
+    qudt:hasUnit unit:Second .
 
 ex:BModuleMeasurementRange a ssn-systems:MeasurementRange ;
-    qudt:hasUnit ex:unit:MilliA ;
-    qudt:lowerBound ex:"4"^^xsd:float ;
-    qudt:upperBound ex:"20"^^xsd:float .
+    qudt:hasUnit unit:MilliA ;
+    qudt:lowerBound "4"^^xsd:float ;
+    qudt:upperBound "20"^^xsd:float .
 
 ex:StarboardCrankshaft a ship:EngineComp ;
     sosa:hosts ex:StarboardEngineSpeedSensor ;
@@ -852,436 +869,436 @@ ex:FuelTank01MeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:FuelLevel ;
     sosa:madeBySensor ex:FuelTank01Sensor ;
     sosa:observedProperty ex:Volume ;
-    qudt:numericValue ex:"1588.43"^^xsd:float ;
-    qudt:hasUnit ex:unit:L .
+    qudt:numericValue "1588.43"^^xsd:float ;
+    qudt:hasUnit unit:L .
 
 ex:FuelTank02MeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:FuelLevel ;
     sosa:madeBySensor ex:FuelTank02Sensor ;
     sosa:observedProperty ex:Volume ;
-    qudt:numericValue ex:"1554.58"^^xsd:float ;
-    qudt:hasUnit ex:unit:L .
+    qudt:numericValue "1554.58"^^xsd:float ;
+    qudt:hasUnit unit:L .
 
 ex:FuelTank05MeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:FuelLevel ;
     sosa:madeBySensor ex:FuelTank05Sensor ;
     sosa:observedProperty ex:Volume ;
-    qudt:numericValue ex:"1394.34"^^xsd:float ;
-    qudt:hasUnit ex:unit:L .
+    qudt:numericValue "1394.34"^^xsd:float ;
+    qudt:hasUnit unit:L .
 
 ex:FuelTank06MeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:FuelLevel ;
     sosa:madeBySensor ex:FuelTank06Sensor ;
     sosa:observedProperty ex:Volume ;
-    qudt:numericValue ex:"1431.14"^^xsd:float ;
-    qudt:hasUnit ex:unit:L .
+    qudt:numericValue "1431.14"^^xsd:float ;
+    qudt:hasUnit unit:L .
 
 ex:FuelTank07MeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:FuelLevel ;
     sosa:madeBySensor ex:FuelTank07Sensor ;
     sosa:observedProperty ex:Volume ;
-    qudt:numericValue ex:"2150.10"^^xsd:float ;
-    qudt:hasUnit ex:unit:L .
+    qudt:numericValue "2150.10"^^xsd:float ;
+    qudt:hasUnit unit:L .
 
 ex:FuelTank08MeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:FuelLevel ;
     sosa:madeBySensor ex:FuelTank08Sensor ;
     sosa:observedProperty ex:Volume ;
-    qudt:numericValue ex:"2073.14"^^xsd:float ;
-    qudt:hasUnit ex:unit:L .
+    qudt:numericValue "2073.14"^^xsd:float ;
+    qudt:hasUnit unit:L .
 
 ex:FuelTank15MeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:FuelLevel ;
     sosa:madeBySensor ex:FuelTank15Sensor ;
     sosa:observedProperty ex:Volume ;
-    qudt:numericValue ex:"1982.74"^^xsd:float ;
-    qudt:hasUnit ex:unit:L .
+    qudt:numericValue "1982.74"^^xsd:float ;
+    qudt:hasUnit unit:L .
 
 ex:FreshwaterTank14MeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:FreshwaterLevel ;
     sosa:madeBySensor ex:FreshwaterTank14Sensor ;
     sosa:observedProperty ex:Volume ;
-    qudt:numericValue ex:"208.18"^^xsd:float ;
-    qudt:hasUnit ex:unit:L .
+    qudt:numericValue "208.18"^^xsd:float ;
+    qudt:hasUnit unit:L .
 
 ex:BilgeWaterTank12MeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:BilgeWaterLevel ;
     sosa:madeBySensor ex:BilgeWaterTank12Sensor ;
     sosa:observedProperty ex:Volume ;
-    qudt:numericValue ex:"4345.91"^^xsd:float ;
-    qudt:hasUnit ex:unit:L .
+    qudt:numericValue "4345.91"^^xsd:float ;
+    qudt:hasUnit unit:L .
 
 ex:ShoreConnectionActivePowerMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:ShoreConnectionActivePower ;
     sosa:madeBySensor ex:ShoreConnectionActivePowerSensor ;
     sosa:observedProperty ex:Power ;
-    qudt:hasUnit ex:unit:KiloW .
+    qudt:hasUnit unit:KiloW .
 
 ex:ShoreConnectionConsumptionMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:ShoreConnectionEnergyConsumption ;
     sosa:madeBySensor ex:ShoreConnectionConsumptionSensor ;
     sosa:observedProperty ex:Consumption ;
-    qudt:hasUnit ex:unit:KiloW-HR .
+    qudt:hasUnit unit:KiloW-HR .
 
 ex:ShoreConnectionL1CurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:ShoreConnectionCurrent ;
     sosa:madeBySensor ex:ShoreConnectionCurrentL1Sensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:ShoreConnectionL2CurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:ShoreConnectionCurrent ;
     sosa:madeBySensor ex:ShoreConnectionCurrentL2Sensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:ShoreConnectionL3CurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:ShoreConnectionCurrent ;
     sosa:madeBySensor ex:ShoreConnectionCurrentL2Sensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:ShoreConnectionFrequencyMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:ShoreConnectionFrequency ;
     sosa:madeBySensor ex:ShoreConnectionFrequencySensor ;
     sosa:observedProperty ex:Frequency ;
-    qudt:hasUnit ex:unit:HZ .
+    qudt:hasUnit unit:HZ .
 
 ex:ShoreConnectionVoltageMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:ShoreConnectionVoltage ;
     sosa:madeBySensor ex:ShoreConnectionVoltageSensor ;
     sosa:observedProperty ex:Voltage ;
-    qudt:hasUnit ex:unit:V .
+    qudt:hasUnit unit:V .
 
 ex:InclinationMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:InclinationAngle ;
     sosa:madeBySensor ex:InclinationSensor ;
     sosa:observedProperty ex:Angle ;
-    qudt:hasUnit ex:unit:DEG .
+    qudt:hasUnit unit:DEG .
 
 ex:FirePumpPressureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:PumpPressure ;
     sosa:madeBySensor ex:FirePumpPressureSensor ;
     sosa:observedProperty ex:Pressure ;
-    qudt:hasUnit ex:unit:BAR .
+    qudt:hasUnit unit:BAR .
 
 ex:StarboardGearBoxLubOilTemperatureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:LubricationOilTemperature ;
     sosa:madeBySensor ex:StarboardGearBoxLubOilTemperatureSensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:PortGearBoxLubOilTemperatureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:LubricationOilTemperature ;
     sosa:madeBySensor ex:PortGearBoxLubOilTemperatureSensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:StarboardFanRotationSpeedMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:FanRotationSpeed ;
     sosa:madeBySensor ex:StarboardFanRotationSpeedSensor ;
     sosa:observedProperty ex:RotationSpeed ;
-    qudt:hasUnit ex:unit:REV-PER-MIN .
+    qudt:hasUnit unit:REV-PER-MIN .
 
 ex:PortFanRotationSpeedMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:FanRotationSpeed ;
     sosa:madeBySensor ex:PortFanRotationSpeedSensor ;
     sosa:observedProperty ex:RotationSpeed ;
-    qudt:hasUnit ex:unit:PERCENT .
+    qudt:hasUnit unit:PERCENT .
 
 ex:BridgeBatteryVoltageMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:BatteryVoltage ;
     sosa:madeBySensor ex:BridgeBatteryVoltageSensor ;
     sosa:observedProperty ex:Voltage ;
-    qudt:hasUnit ex:unit:V .
+    qudt:hasUnit unit:V .
 
 ex:BridgeBatteryCurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:BatteryCurrent ;
     sosa:madeBySensor ex:BridgeBatteryCurrentSensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:AutomationBatteryVoltageMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:BatteryVoltage ;
     sosa:madeBySensor ex:AutomationBatteryVoltageSensor ;
     sosa:observedProperty ex:Voltage ;
-    qudt:hasUnit ex:unit:V .
+    qudt:hasUnit unit:V .
 
 ex:AutomationBatteryCurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:BatteryCurrent ;
     sosa:madeBySensor ex:AutomationBatteryCurrentSensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:SmallAuxDieselEngineCoolWaterTemperatureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:CoolantTemperature ;
     sosa:madeBySensor ex:SmallAuxDieselEngineCoolWaterTemperatureSensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:SmallAuxDieselEngineL1CurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineCurrent ;
     sosa:madeBySensor ex:SmallAuxDieselEngineCurrentL1Sensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:SmallAuxDieselEngineL2CurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineCurrent ;
     sosa:madeBySensor ex:SmallAuxDieselEngineCurrentL2Sensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:SmallAuxDieselEngineL3CurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineCurrent ;
     sosa:madeBySensor ex:SmallAuxDieselEngineCurrentL3Sensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:SmallAuxDieselEngineFrequencyMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineFrequency ;
     sosa:madeBySensor ex:SmallAuxDieselEngineFrequencySensor ;
     sosa:observedProperty ex:Frequency ;
-    qudt:hasUnit ex:unit:HZ .
+    qudt:hasUnit unit:HZ .
 
 ex:SmallAuxDieselEngineLoadMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineLoad ;
     sosa:madeBySensor ex:SmallAuxDieselEngineLoadSensor ;
     sosa:observedProperty ex:Load ;
-    qudt:hasUnit ex:unit:PERCENT .
+    qudt:hasUnit unit:PERCENT .
 
 ex:SmallAuxDieselEngineLubOilPressureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:LubricationOilPressure ;
     sosa:madeBySensor ex:SmallAuxDieselEngineLubOilPressureSensor ;
     sosa:observedProperty ex:Pressure ;
-    qudt:hasUnit ex:unit:BAR .
+    qudt:hasUnit unit:BAR .
 
 ex:SmallAuxDieselEnginePowerMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EnginePower ;
     sosa:madeBySensor ex:SmallAuxDieselEnginePowerSensor ;
     sosa:observedProperty ex:Power ;
-    qudt:hasUnit ex:unit:KiloW .
+    qudt:hasUnit unit:KiloW .
 
 ex:SmallAuxDieselEngineVoltageMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineVoltage ;
     sosa:madeBySensor ex:SmallAuxDieselEngineVoltageSensor ;
     sosa:observedProperty ex:Voltage ;
-    qudt:hasUnit ex:unit:V .
+    qudt:hasUnit unit:V .
 
 ex:LargeAuxDieselEngineLoadMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineLoad ;
     sosa:madeBySensor ex:LargeAuxDieselEngineLoadSensor ;
     sosa:observedProperty ex:Load ;
-    qudt:hasUnit ex:unit:PERCENT .
+    qudt:hasUnit unit:PERCENT .
 
 ex:LargeAuxDieselEnginePowerMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EnginePower ;
     sosa:madeBySensor ex:LargeAuxDieselEnginePowerSensor ;
     sosa:observedProperty ex:Power ;
-    qudt:hasUnit ex:unit:KiloW .
+    qudt:hasUnit unit:KiloW .
 
 ex:LargeAuxDieselEngineVoltageMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineVoltage ;
     sosa:madeBySensor ex:LargeAuxDieselEngineVoltageSensor ;
     sosa:observedProperty ex:Voltage ;
-    qudt:hasUnit ex:unit:V .
+    qudt:hasUnit unit:V .
 
 ex:LargeAuxDieselEngineFrequencyMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineFrequency ;
     sosa:madeBySensor ex:LargeAuxDieselEngineFrequencySensor ;
     sosa:observedProperty ex:Frequency ;
-    qudt:hasUnit ex:unit:HZ .
+    qudt:hasUnit unit:HZ .
 
 ex:LargeAuxDieselEngineL1CurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineCurrent ;
     sosa:madeBySensor ex:LargeAuxDieselEngineCurrentL1Sensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:LargeAuxDieselEngineL2CurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineCurrent ;
     sosa:madeBySensor ex:LargeAuxDieselEngineCurrentL2Sensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:LargeAuxDieselEngineL2CurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineCurrent ;
     sosa:madeBySensor ex:LargeAuxDieselEngineCurrentL3Sensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:MachineRoomTemperatureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:RoomTemperature ;
     sosa:madeBySensor ex:MachineRoomTemperatureSensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:StarboardEngineAlternatorCurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineCurrent ;
     sosa:madeBySensor ex:StarboardEngineAlternatorCurrentSensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:PortEngineAlternatorCurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineCurrent ;
     sosa:madeBySensor ex:PortEngineAlternatorCurrentSensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:StarboardEngineSpeedMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineRotationSpeed ;
     sosa:madeBySensor ex:StarboardEngineSpeedSensor ;
     sosa:observedProperty ex:RotationSpeed ;
-    qudt:hasUnit ex:unit:REV-PER-MIN .
+    qudt:hasUnit unit:REV-PER-MIN .
 
 ex:PortEngineSpeedMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineRotationSpeed ;
     sosa:madeBySensor ex:PortEngineSpeedSensor ;
     sosa:observedProperty ex:RotationSpeed ;
-    qudt:hasUnit ex:unit:REV-PER-MIN .
+    qudt:hasUnit unit:REV-PER-MIN .
 
 ex:StarboardEngineOilLevelMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:OilLevel ;
     sosa:madeBySensor ex:StarboardEngineOilLevelSensor ;
     sosa:observedProperty ex:Volume ;
-    qudt:hasUnit ex:unit:L .
+    qudt:hasUnit unit:L .
 
 ex:PortEngineOilLevelMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:OilLevel ;
     sosa:madeBySensor ex:PortEngineOilLevelSensor ;
     sosa:observedProperty ex:Volume ;
-    qudt:hasUnit ex:unit:L .
+    qudt:hasUnit unit:L .
 
 ex:StarboardEnginePressureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EnginePressure ;
     sosa:madeBySensor ex:StarboardEnginePressureSensor ;
     sosa:observedProperty ex:Pressure ;
-    qudt:hasUnit ex:unit:BAR .
+    qudt:hasUnit unit:BAR .
 
 ex:PortEnginePressureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EnginePressure ;
     sosa:madeBySensor ex:PortEnginePressureSensor ;
     sosa:observedProperty ex:Pressure ;
-    qudt:hasUnit ex:unit:BAR .
+    qudt:hasUnit unit:BAR .
 
 ex:StarboardEngineFuelTemperatureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:FuelTemperature ;
     sosa:madeBySensor ex:StarboardEngineFuelTemperatureSensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:PortEngineFuelTemperatureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:FuelTemperature ;
     sosa:madeBySensor ex:PortEngineFuelTemperatureSensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:StarboardElecticalPotentialMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineVoltage ;
     sosa:madeBySensor ex:StarboardElecticalPotentialSensor ;
     sosa:observedProperty ex:Voltage ;
-    qudt:hasUnit ex:unit:V .
+    qudt:hasUnit unit:V .
 
 ex:PortElecticalPotentialMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:EngineVoltage ;
     sosa:madeBySensor ex:PortElecticalPotentialSensor ;
     sosa:observedProperty ex:Voltage ;
-    qudt:hasUnit ex:unit:V .
+    qudt:hasUnit unit:V .
 
 ex:StarboardAlternatorCurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:AlternatorCurrent ;
     sosa:madeBySensor ex:StarboardAlternatorCurrentSensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:PortAlternatorCurrentMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:AlternatorCurrent ;
     sosa:madeBySensor ex:PortAlternatorCurrentSensor ;
     sosa:observedProperty ex:Current ;
-    qudt:hasUnit ex:unit:A .
+    qudt:hasUnit unit:A .
 
 ex:StarboardClutchPressureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:ClutchPressure ;
     sosa:madeBySensor ex:StarboardClutchPressureSensor ;
     sosa:observedProperty ex:Pressure ;
-    qudt:hasUnit ex:unit:BAR .
+    qudt:hasUnit unit:BAR .
 
 ex:PortClutchPressureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:ClutchPressure ;
     sosa:madeBySensor ex:PortClutchPressureSensor ;
     sosa:observedProperty ex:Pressure ;
-    qudt:hasUnit ex:unit:BAR .
+    qudt:hasUnit unit:BAR .
 
 ex:StarboardEngineAirInletPressureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:AirInletPressure ;
     sosa:madeBySensor ex:StarboardEngineAirInletPressureSensor ;
     sosa:observedProperty ex:Pressure ;
-    qudt:hasUnit ex:unit:BAR .
+    qudt:hasUnit unit:BAR .
 
 ex:PortEngineAirInletPressureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:AirInletPressure ;
     sosa:madeBySensor ex:PortEngineAirInletPressureSensor ;
     sosa:observedProperty ex:Pressure ;
-    qudt:hasUnit ex:unit:BAR .
+    qudt:hasUnit unit:BAR .
 
 ex:StarboardEngineECUTemperatureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:ECUTemperature ;
     sosa:madeBySensor ex:StarboardEngineECUTemperatureSensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:PortEngineECUTemperatureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:ECUTemperature ;
     sosa:madeBySensor ex:PortEngineECUTemperatureSensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:SatrboardEngineExhaustGasTemperatureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:ExhaustGasTemperature ;
     sosa:madeBySensor ex:SatrboardEngineExhaustGasTemperatureSensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:PortEngineExhaustGasTemperatureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:ExhaustGasTemperature ;
     sosa:madeBySensor ex:PortEngineExhaustGasTemperatureSensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:StarboardEngineOilTemperature1MeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:OilTemperature ;
     sosa:madeBySensor ex:StarboardEngineOilTemperature1Sensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:PortEngineOilTemperature1MeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:OilTemperature ;
     sosa:madeBySensor ex:PortEngineOilTemperature1Sensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:StarboardEngineCoolantTemperatureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:CoolantTemperature ;
     sosa:madeBySensor ex:StarboardEngineCoolantTemperatureSensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:PortEngineCoolantTemperatureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:CoolantTemperature ;
     sosa:madeBySensor ex:PortEngineCoolantTemperatureSensor ;
     sosa:observedProperty ex:Temperature ;
-    qudt:hasUnit ex:unit:DEG_C .
+    qudt:hasUnit unit:DEG_C .
 
 ex:StarboardCoolantPressureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:CoolantPressure ;
     sosa:madeBySensor ex:StarboardCoolantPressureSensor ;
     sosa:observedProperty ex:Pressure ;
-    qudt:hasUnit ex:unit:BAR .
+    qudt:hasUnit unit:BAR .
 
 ex:PortEngineCoolantPressureMeanValue a ship:AggregatedObservation ;
     sosa:hasFeatureOfInterest ex:CoolantPressure ;
     sosa:madeBySensor ex:PortEngineCoolantPressureSensor ;
     sosa:observedProperty ex:Pressure ;
-    qudt:hasUnit ex:unit:BAR .
+    qudt:hasUnit unit:BAR .
 
 ex:Volume a sosa:ObservableProperty ;
     sosa:isObservedBy ex:FuelTank01Sensor , ex:FuelTank02Sensor , ex:FuelTank05Sensor , ex:FuelTank06Sensor , ex:FuelTank07Sensor , ex:FuelTank08Sensor , ex:FuelTank15Sensor , ex:FreshwaterTank14Sensor , ex:BilgeWaterTank12Sensor , ex:StarboardEngineOilLevelSensor , ex:PortEngineOilLevelSensor .
