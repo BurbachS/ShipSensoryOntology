@@ -53,17 +53,17 @@
 ship:EngineComp a owl:Class ;
     rdfs:subClassOf sosa:Platform ;
     rdfs:label "Engine Component" ;
-	rdfs:comment "Represents physical engine components that host associated engine sensors." .
+    rdfs:comment "Represents physical engine components that host associated engine sensors." .
 	
 ship:Structure a owl:Class ;
     rdfs:subClassOf sosa:Platform ;
     rdfs:label "Structure" ;
-	rdfs:comment "Represents physical structures that host an associated engine or general sensors." .
+    rdfs:comment "Represents physical structures that host an associated engine or general sensors." .
 	
 ship:Device a owl:Class ;
     rdfs:subClassOf sosa:Platform ;
     rdfs:label "Device" ;
-	rdfs:comment "Represents physical devices that host associated general sensors." .
+    rdfs:comment "Represents physical devices that host associated general sensors." .
 
 [] a owl:AllDisjointClasses ;
     owl:members ( ship:EngineComp ship:Structure ship:Device ) .
@@ -72,39 +72,39 @@ ship:GeneralSensor a owl:Class ;
     rdfs:subClassOf sosa:Sensor ;
     rdfs:label "General Sensor" ;		
     owl:disjointWith ship:EngineSensor ;
-	rdfs:comment "Represents general sensors, distinguished from main engine sensors, including those monitoring fuel level, room temperature, pump pressure, and other non-engine parameters." .
+    rdfs:comment "Represents general sensors, distinguished from main engine sensors, including those monitoring fuel level, room temperature, pump pressure, and other non-engine parameters." .
 
 ship:EngineSensor a owl:Class ;
     rdfs:subClassOf sosa:Sensor ;
     rdfs:label "Engine Sensor" ;
-	rdfs:comment "Represents the main engine and engine-related sensors." .
+    rdfs:comment "Represents the main engine and engine-related sensors." .
 
 ship:AlarmThresholdRange a owl:Class ;
     rdfs:subClassOf ship:SensorProperty , qudt:QuantityValue ;
     rdfs:label "Alarm Threshold Range" ;
     owl:disjointWith ship:NormValueRange ;
-	rdfs:comment "Represents low and high alarm threshold values, extended with QUDT properties: unit, lowerBound, and upperBound." .
+    rdfs:comment "Represents low and high alarm threshold values, extended with QUDT properties: unit, lowerBound, and upperBound." .
 
 ship:NormValueRange a owl:Class ;
     rdfs:subClassOf ship:SensorProperty , qudt:QuantityValue ;
     rdfs:label "Normalized Value Range" ;
-	rdfs:comment "Represents a normalized value range, determined by the physical properties of the hosting platform, extended with QUDT properties: unit, lowerBound, and upperBound." .
+    rdfs:comment "Represents a normalized value range, determined by the physical properties of the hosting platform, extended with QUDT properties: unit, lowerBound, and upperBound." .
 	
 ship:SensorProperty a owl:Class ;
     rdfs:subClassOf ssn:Property ;
     rdfs:label "Sensor Property" ;
-	rdfs:comment "Represents sensor-related properties, including value ranges and thresholds, that are specific to individual sensors." .
+    rdfs:comment "Represents sensor-related properties, including value ranges and thresholds, that are specific to individual sensors." .
 
 ship:AggregatedObservation a owl:Class ;
     rdfs:subClassOf sosa:Observation , qudt:QuantityValue ;
     rdfs:label "Aggregated Observation" ;
-	rdfs:comment "Represents observations containing mean values calculated for associated sensors, extended with QUDT properties: unit and numericValue." ;
+    rdfs:comment "Represents observations containing mean values calculated for associated sensors, extended with QUDT properties: unit and numericValue." ;
     owl:disjointWith ship:AnomalyObservation .	
 
 ship:AnomalyObservation a owl:Class ;
     rdfs:subClassOf sosa:Observation ;
     rdfs:label "Anomaly Observation" ;
-	rdfs:comment "Represents anomaly observations related to associated sensors." .
+    rdfs:comment "Represents anomaly observations related to associated sensors." .
 
 geo:SpatialThing a owl:Class ;
     rdfs:label "SpatialThing" .
@@ -126,12 +126,12 @@ ssn-systems:SystemCapability a owl:Class ;
 ssn-systems:Frequency a owl:Class ;
     rdfs:subClassOf ssn-systems:SystemProperty , qudt:QuantityValue ;
     rdfs:label "Frequency" ;
-	rdfs:comment "Represents ssn-systems:Frequency class, extended with QUDT properties: unit and numericValue." .
+    rdfs:comment "Represents ssn-systems:Frequency class, extended with QUDT properties: unit and numericValue." .
 
 ssn-systems:MeasurementRange a owl:Class ;
     rdfs:subClassOf ssn-systems:SystemProperty , qudt:QuantityValue ;
     rdfs:label "MeasurementRange" ;
-	rdfs:comment "Represents ssn-systems:MeasurementRange class, extended with QUDT properties: unit, lowerBound, and upperBound." .
+    rdfs:comment "Represents ssn-systems:MeasurementRange class, extended with QUDT properties: unit, lowerBound, and upperBound." .
 
 sosa:Observation a owl:Class ;
     rdfs:label "Observation" .
