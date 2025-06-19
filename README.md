@@ -5,6 +5,10 @@ MontoFlow is a modular framework that facilitates the seamless integration of st
 The SHIP Ontology provides a semantic model for representing onboard sensory systems, their components, and observations. It extends the W3C SSN/SOSA ontology with maritime-specific concepts, such as engine components, sensor properties, aggregated and anomaly observations, and domain-specific value ranges. The ontology is designed to support condition monitoring, predictive maintenance, and real-time diagnostics in maritime environments.
 In addition to the ontology, we provide a complementary software framework that automatically instantiates individuals based on real-time ship sensor data. This framework connects to operational databases, interprets raw data streams, and dynamically generates RDF instances for live observations and anomalies.
 
+## Ontology website
+Further documentation is available on the ontology's website:
+https://burbachs.github.io/ShipSensoryOntology/documentation/index-en.html
+
 ## How to use the MontoFlow-Dynamic for real-time data querying
 ontop.bat query -p ontop.properties -m mapping.ttl -q CQs/C01_1g.rq
 
