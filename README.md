@@ -10,7 +10,7 @@ Further documentation is available on the ontology's website:
 https://burbachs.github.io/ShipSensoryOntology/documentation/index-en.html
 
 ## MontoFlow Usage Guide
-**MontoFlow-Static & SHIP Ontology**
+### MontoFlow-Static & SHIP Ontology
 
 To use MontoFlow-Static with the SHIP Ontology, please make sure that the relevant instances (sensors, devices, engine components, etc.) are correctly added to the Property_Matrix/OWL_Property_Matrix.xlsx Excel file. Each sheet corresponds to a class from the SHIP ontology. The first column (Individual) refers to the instance names, the second column (rdf:type) denotes the type (i.e., the parent class), while the remaining columns describe associated object/data properties.
 
@@ -30,7 +30,7 @@ As a result, a new instantiated TTL file will be created in the root folder:
 
 For further customization, please refer to the CONFIGURATION section within MontoFlow_static.py.
 
-**MontoFlow-Static & Custom Ontology**
+### MontoFlow-Static & Custom Ontology
 
 To use MontoFlow-Static with other domains or custom ontologies, the user must create their own Property_Matrix by renaming the sheet tabs to match the relevant ontology classes and adding the corresponding data/object properties as columns.
 
