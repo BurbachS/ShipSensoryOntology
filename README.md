@@ -22,7 +22,7 @@ Important Notes:
 
 Once the OWL_Property_Matrix.xlsx file is correctly completed, you can start the ontology instantiation process by running the following command in your terminal:
 
-<span style="font-family:Courier New; font-size:4em;">python3 MontoFlow_static.py</span>
+`python3 MontoFlow_static.py`
 
 As a result, a new instantiated TTL file will be created in the root folder:
 
