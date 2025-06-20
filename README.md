@@ -44,6 +44,25 @@ Important Notes:
 * The input ontology should be in TTL format.
 * All prefixes and imports must be correctly defined.
 
+### MontoFlow-Dynamic & SHIP Ontology
+
+To use MontoFlow-Dynamic with the SHIP Ontology, please make sure that Ontop_Property_Matrix.xlsx is correctly populated, based on the general guidelines in the 'MontoFlow-Static & SHIP Ontology' section, with two exceptions:
+* Subclass sheet should be left as it is, as it is required for Class-Subclass mapping.
+* Data property literal values should be entered without datatype (defined in R2RML mapping). For instance, the previous example transforms into qudt:upperBound 20.
+
+Once Ontop_Property_Matrix.xlsx is completed, you can initialize MontoFlow-Dynamic with the following command:
+
+`python3 MontoFlow_dynamic.py`
+
+The tool converts each Property_Matrix sheet into a separate CSV file (located at data/Ship01/owl/) and creates the corresponding DuckDB view (DuckDB/ontop.duckdb). The Ontop mapping (mapping.ttl) and ontop.properties files are already provided and match the MontoFlow-Dynamic configuration.
+
+Important Notes:
+
+* For real-time (raw data) logs, it is assumed the following data structure: data/Ship01/raw/yyyy/mm/dd/*.csv, where each CSV log file contains the sensor name (e.g., FuelTank01Sensor.csv).
+* The tool automatically creates a datetime "timestamp" column based on the file path.
+
+
+
 ## How to use the MontoFlow-Dynamic for real-time data querying
 ontop.bat query -p ontop.properties -m mapping.ttl -q CQs/C01_1g.rq
 
