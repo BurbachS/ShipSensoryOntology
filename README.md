@@ -26,7 +26,7 @@ Once the OWL_Property_Matrix.xlsx file is correctly completed, you can start the
 
 As a result, a new instantiated TTL file will be created in the root folder:
 
-<span style="font-family:Courier; font-size:4em;">SHIP_individuals.ttl</span>
+`SHIP_individuals.ttl`
 
 For further customization, please refer to the CONFIGURATION section within MontoFlow_static.py.
 
@@ -38,7 +38,7 @@ Column headers should include the property names with prefixes, as defined in th
 
 The rest of the process remains the same. To generate the ontology:
 
-<span style="font-family:Courier; font-size:4em;">python3 MontoFlow_static.py</span>
+`python3 MontoFlow_static.py`
 
 Important Notes:
 * The input ontology should be in TTL format.
