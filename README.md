@@ -20,15 +20,15 @@ Important Notes:
 * Data property literal values should include a datatype (e.g., qudt:upperBound "20"^^xsd:float).
 * The order of property fields is irrelevant, and new property columns can be added as needed.
 
-Once the OWL_Property_Matrix.xlsx file is correctly completed, you can start the ontology instantiation process by running the following command in your terminal:
+Once the OWL_Property_Matrix.xlsx file is correctly completed, the ontology instantiation process can be started by running the following command in a terminal:
 
 `python3 MontoFlow_static.py`
 
-As a result, a new instantiated TTL file will be created in the root folder:
+As a result, an instantiated ontology (TTL) file will be created in the root folder:
 
 `SHIP_individuals.ttl`
 
-For further customization, please refer to the CONFIGURATION section within MontoFlow_static.py.
+For further customization, please refer to the CONFIGURATION section within `MontoFlow_static.py`.
 
 ### MontoFlow-Static & Custom Ontology
 
@@ -36,32 +36,55 @@ To use MontoFlow-Static with other domains or custom ontologies, the user must c
 
 Column headers should include the property names with prefixes, as defined in the input TTL ontology (e.g., ssn:isProxyFor).
 
-The rest of the process remains the same. To generate the ontology:
+The rest of the process remains the same. To generate the instantiated ontology:
 
 `python3 MontoFlow_static.py`
 
 Important Notes:
-* The input ontology should be in TTL format.
+* The input ontology should be in TTL format, declared in MontoFlow_static.py configuration section
 * All prefixes and imports must be correctly defined.
+
 
 ### MontoFlow-Dynamic & SHIP Ontology
 
 To use MontoFlow-Dynamic with the SHIP Ontology, please make sure that Ontop_Property_Matrix.xlsx is correctly populated, based on the general guidelines in the 'MontoFlow-Static & SHIP Ontology' section, with two exceptions:
-* Subclass sheet should be left as it is, as it is required for Class-Subclass mapping.
+* The Subclass sheet should be left as it is, as it is required for Class-Subclass mapping.
 * Data property literal values should be entered without datatype (defined in R2RML mapping). For instance, the previous example transforms into qudt:upperBound 20.
 
-Once Ontop_Property_Matrix.xlsx is completed, you can initialize MontoFlow-Dynamic with the following command:
+Once Ontop_Property_Matrix.xlsx is completed, MontoFlow-Dynamic can be initialized with the following terminal command:
 
 `python3 MontoFlow_dynamic.py`
 
-The tool converts each Property_Matrix sheet into a separate CSV file (located at data/Ship01/owl/) and creates the corresponding DuckDB view (DuckDB/ontop.duckdb). The Ontop mapping (mapping.ttl) and ontop.properties files are already provided and match the MontoFlow-Dynamic configuration.
+The execution outputs each Property_Matrix sheet into a separate CSV file (located at data/Ship01/owl/) and the corresponding DuckDB database file (DuckDB/ontop.duckdb). The Ontop mapping (mapping.ttl) and ontop.properties files are preconfigured to match the DuckDB view setup.
 
 Important Notes:
 
-* For real-time (raw data) logs, it is assumed the following data structure: data/Ship01/raw/yyyy/mm/dd/*.csv, where each CSV log file contains the sensor name (e.g., FuelTank01Sensor.csv).
-* The tool automatically creates a datetime "timestamp" column based on the file path.
+* For real-time (raw data) logs, the default data structure is: /yyyy/mm/dd/*.csv, where each CSV log file contains the sensor name (e.g., FuelTank01Sensor.csv).
+* The tool automatically creates a datetime "timestamp" column based on the file path, by extracting the date and merging it with the "time" column. Alternatively, a datetime column can be used directly, if already present in the log file.
+* MontoFlow-Dynamic assumes that the Ontop CLI and the DuckDB Python module are already installed. Please refer to their official documentation pages for more details.
 
+For further customization, please refer to MontoFlow_dynamic.py
 
+To run the SPARQL queries on real-time data, use the following command:
+
+`ontop.bat query -p ontop.properties -m mapping.ttl -q user_query.rq`
+
+or try one of the CQ examples:
+
+`ontop.bat query -p ontop.properties -m mapping.ttl -q CQs/C01_1g.rq`
+
+### MontoFlow-Dynamic & Custom Ontology
+To use MontoFlow-Dynamic with other domains or custom ontologies, the user must again create their own Property_Matrix, following the 'MontoFlow-Dynamic & SHIP Ontology' guidelines. 
+
+The next step includes customization of MontoFlow_dynamic.py, mapping.ttl and ontop.properties to match the custom ontology. The key challenge is linking DuckDB views to R2RML mappings, which requires some familiarity with R2RML and view-based data modeling. However, even without prior knowledge, it is possible to deduce the mapping pattern from provided examples. 
+
+Once the customization is completed, MontoFlow-Dynamic can be initialized with the following terminal command:
+
+`python3 MontoFlow_dynamic.py`
+
+To run the SPARQL queries (e.g., `user_query.rq`) on real-time data and custom ontology, use the terminal command:
+
+`ontop.bat query -p ontop.properties -m mapping.ttl -q user_query.rq`
 
 ## How to use the MontoFlow-Dynamic for real-time data querying
 ontop.bat query -p ontop.properties -m mapping.ttl -q CQs/C01_1g.rq
